@@ -1,0 +1,57 @@
+.instruction {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+  margin: 60px 20px;
+}
+.instruction .instruction_title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.instruction .instruction_title h2 {
+  margin-bottom: 18px;
+  margin-top: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+.instruction .instruction_step {
+  align-items: center;
+  width: 100%;
+  background-color: #F3F3F3;
+  display: flex;
+  height: 72px;
+  border-radius: 20px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+.instruction .instruction_step .number {
+  display: inline-flex;
+  height: 24px;
+  width: 24px;
+  border-radius: 50px;
+  color: white;
+  background-color: #9356DC;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1/1;
+  position: relative;
+  z-index: 2;
+  right: 10px;
+}
+.instruction .instruction_step .step {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+.instruction .instruction_step .step .icon {
+  color: silver;
+  position: relative;
+  right: 20.7%;
+}
+.instruction .instruction_step .step .text {
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: -5%;
+  white-space: nowrap;
+}/*# sourceMappingURL=fonctionnement.css.map */

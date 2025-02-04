@@ -1,0 +1,86 @@
+.restaurants {
+  background-color: #F3F3F3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 4.6%;
+}
+.restaurants .restaurants_title {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+.restaurants .restaurants_cards {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-sizing: border-box;
+  width: 100%;
+}
+.restaurants .restaurants_cards a {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.restaurants .restaurants_cards a .card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  background-color: white;
+}
+.restaurants .restaurants_cards a .card .card-image {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  position: relative;
+}
+.restaurants .restaurants_cards a .card .card-image img {
+  height: 180px;
+  border-radius: 20px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  flex-grow: 1;
+  -o-object-position: center 68%;
+     object-position: center 68%;
+}
+.restaurants .restaurants_cards a .card .card-image .card-new {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #32b091;
+  background-color: #99E2D0;
+  padding: 6px 9px;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-flex;
+  box-sizing: border-box;
+  border-radius: 2px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+.restaurants .restaurants_cards a .card .card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 10px;
+}
+.restaurants .restaurants_cards a .card .card-content .card-txt {
+  display: flex;
+  flex-direction: column;
+}
+.restaurants .restaurants_cards a .card .card-content .card-txt .card-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+.restaurants .restaurants_cards a .card .card-content .card-txt .card-subtitle {
+  font-size: 17px;
+  font-weight: 300;
+  margin: 0;
+}
+.restaurants .restaurants_cards a .card .card-content .card-like {
+  display: inline-flex;
+  padding-right: 10px;
+}
+.restaurants .restaurants_cards a .card .card-content .card-like .fa-heart {
+  font-size: 22px;
+  color: #4d4d4d;
+}/*# sourceMappingURL=restaurants_cards.css.map */

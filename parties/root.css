@@ -1,0 +1,16 @@
+body {
+  display: flex;
+  justify-content: center;
+  white-space: normal;
+  margin: 0;
+}
+body .main-container {
+  width: 100%;
+  max-width: 768px;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+body .main-container a {
+  color: inherit;
+  text-decoration: none;
+}/*# sourceMappingURL=root.css.map */

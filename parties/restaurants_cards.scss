@@ -1,0 +1,143 @@
+//Mes variables//
+
+$main-grey-color:#F3F3F3;
+$secondary-rose-color:#FF79DA;
+$third-violet-color:#9356DC;
+$fourth-green-color:#99E2D0;
+$main-police:'Roboto', sans-serif;
+
+//Mes mixins//
+@mixin long-button-shadow { box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);}
+@mixin secondary-writingstyle {
+    font-family:'Shrikhand', sans-serif; ;
+    font-style: italic
+  }
+  @mixin button-preform {
+  display: inline-flex;
+  height: 50px;
+  width: fit-content;
+  box-sizing: border-box;
+  background: linear-gradient(90deg, $secondary-rose-color, $third-violet-color);
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+}
+
+@mixin image-preform {
+    object-fit: cover;
+    flex-grow: 1;
+}
+@mixin long-button-preform {
+    display: flex;
+    height: 72px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+@mixin section-preform {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+//**Restaurants**//
+
+.restaurants {
+    background-color: $main-grey-color;
+    @include section-preform;
+    padding: 60px 4.6%;
+
+
+    .restaurants_title {
+     margin-top: 0;
+     margin-bottom: 24px;
+    }
+
+    .restaurants_cards {
+    display: flex;
+    flex-direction: column;
+    gap:18px;
+    box-sizing: border-box;
+    width: 100%;
+
+
+        a {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        
+
+        .card {
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+        background-color: lighten($main-grey-color, 5%);
+
+
+            .card-image {
+            display: flex;
+            flex-direction: column;
+            border-radius: 20px;
+            position: relative;
+
+
+                img {
+                height: 180px;
+                border-radius: 20px;
+                @include image-preform;
+                object-position: center 68%;
+                }
+
+                .card-new {
+                 position: absolute;
+                 top: 20px;
+                 right: 20px;
+                 color: darken($fourth-green-color, 30%);
+                 background-color: $fourth-green-color;
+                 padding: 6px 9px;
+                 font-size: 14px;
+                 font-weight: 500;
+                 display: inline-flex;
+                 box-sizing: border-box;
+                 border-radius: 2px;
+                 box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+                }
+            }
+            .card-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 10px;
+            
+
+                .card-txt {
+                display: flex;
+                flex-direction: column;
+                
+                    .card-title {
+                     font-size: 18px;
+                     font-weight: 700;
+                     margin: 0;
+                    }               
+
+                    .card-subtitle {
+                    font-size: 17px;
+                    font-weight: 300;
+                    margin: 0;
+                    }
+                }
+
+                .card-like {
+                display: inline-flex;
+                padding-right: 10px;
+
+                    .fa-heart {
+                    font-size: 22px;
+                    color: darken($main-grey-color, 65%);
+                    }
+                }
+            }
+        }
+        }
+    }
+}

@@ -1,0 +1,178 @@
+//Mes variables//
+
+$main-grey-color:#F3F3F3;
+$secondary-rose-color:#FF79DA;
+$third-violet-color:#9356DC;
+$fourth-green-color:#99E2D0;
+$main-police:'Roboto', sans-serif;
+
+//Mes mixins//
+@mixin long-button-shadow { box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);}
+@mixin secondary-writingstyle {
+    font-family:'Shrikhand', sans-serif; ;
+    font-style: italic
+  }
+  @mixin button-preform {
+  display: inline-flex;
+  height: 50px;
+  width: fit-content;
+  box-sizing: border-box;
+  background: linear-gradient(90deg, $secondary-rose-color, $third-violet-color);
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+  cursor: default;
+}
+@mixin button-inside-preform{
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+}
+@mixin image-preform {
+    object-fit: cover;
+    flex-grow: 1;
+}
+@mixin long-button-preform {
+    display: flex;
+    height: 72px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+@mixin section-preform {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+//**Menu**//
+
+.resto {
+    display: flex;
+    flex-direction: column;
+
+    .resto_image {
+    height: auto;
+    @include image-preform;
+    aspect-ratio: 3/2.1;
+    }
+
+    .menu {
+    border-radius: 40px 40px 0 0;
+    display: flex;
+    flex-direction: column;
+    background-color: $main-grey-color;
+    margin-top: -13%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 3%;
+    gap: 40px;
+
+
+        .resto_name {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+
+            h1 {
+            @include secondary-writingstyle;
+            font-size: 28px;
+            font-weight: 400;
+            margin-top: 40px;
+            margin-bottom: 0;
+            }
+
+            i {
+            padding-right: 4%;
+            padding-top: 36px;
+            }
+            
+        }
+
+        .type-plats {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+
+
+            .name {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+                h2 {
+                font-size: 16px;
+                font-weight: 300;
+                margin-bottom: 6px;
+                margin-top: 0;
+                }
+
+                .underline {
+                width: 40px;
+                background-color: $fourth-green-color;
+                height: 3px;
+                }
+            }
+
+            .variant-plat {
+            justify-content: space-between;
+            align-items: flex-end;
+            background-color: white;
+            width: 100%;
+            @include long-button-preform;
+            
+
+                .plat {
+                display: flex;
+                flex-direction: column;
+                padding: 15px;
+                gap: 5px;
+
+
+                    .plat-first_line {
+                    font-size: 18px;
+                    font-weight: 500;
+                    }
+
+                    .plat-second_line {
+                     font-size: 15px;
+                    font-weight: 300;
+                    }
+                }
+
+                .prix {
+                font-size: 15px;
+                font-weight: 700;
+                padding: 15px;
+                }
+            }
+        }
+
+        nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .button_for_action {
+            @include button-preform;
+            padding: 16px 49px; 
+            margin-bottom:60px;
+            transition: all 0.3s ease;
+            transform: translateZ(0) 400ms;  
+               
+            &:hover{ background: linear-gradient(90deg, #FF94E1, #9B6CDC);
+                box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+                transform: translateZ(10px);
+        
+                   + a {
+                    transform:translateY(-3px);
+                   }
+                }
+                   a {@include button-inside-preform;
+                   }
+            }
+        }
+    }
+}

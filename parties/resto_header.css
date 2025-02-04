@@ -1,0 +1,16 @@
+.resto-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  position: relative;
+}
+.resto-header nav {
+  position: absolute;
+  left: 10px;
+}
+.resto-header nav i {
+  color: #4d4d4d;
+  margin-left: 12px;
+  font-size: 17px;
+}/*# sourceMappingURL=resto_header.css.map */
