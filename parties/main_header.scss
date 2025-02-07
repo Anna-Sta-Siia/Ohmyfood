@@ -8,10 +8,18 @@ $main-police:'Roboto', sans-serif;
 
 
 //Mes mixins//
+@mixin logo-preform {
+    .logo {
+    height: 36px;
+    width: 197px;
+    margin-bottom: 10px;
+    margin-top: 18px;
+    }
+}
 @mixin long-button-shadow { box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);}
 @mixin secondary-writingstyle {
-    font-family:'Shrikhand', sans-serif; ;
-    font-style: italic
+    font-family:'Shrikhand', sans-serif; 
+    font-style: italic;
   }
   @mixin button-preform {
   display: inline-flex;
@@ -52,6 +60,7 @@ $main-police:'Roboto', sans-serif;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    
     .head-logo{
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     overflow:visible;
@@ -60,13 +69,9 @@ $main-police:'Roboto', sans-serif;
     width: 100%;
     z-index: 2;
       
-        .logo {
-        height: 36px;
-        width: 197px;
-        margin-bottom: 10px;
-        margin-top: 18px;
-        }
-    }
+    @include logo-preform;
+    
+}
     .searchform {
     display: flex;
     justify-content: center;

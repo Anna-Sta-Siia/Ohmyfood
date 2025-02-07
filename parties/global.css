@@ -420,6 +420,12 @@ body .main-container a {
   margin-left: 12px;
   font-size: 17px;
 }
+.resto-header .logo {
+  height: 36px;
+  width: 197px;
+  margin-bottom: 10px;
+  margin-top: 18px;
+}
 
 .footer {
   background-color: #272727;
