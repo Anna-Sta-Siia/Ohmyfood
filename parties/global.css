@@ -91,19 +91,13 @@ body .main-container a {
   justify-content: center;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   border-radius: 25px;
-  cursor: default;
   padding: 13px 18.75px;
   margin-bottom: 60px;
-  transition: all 0.3s ease;
-  transform: translateZ(0) 400ms;
+  transition: all 0.4s ease;
 }
 .main-header .button_for_action:hover {
   background: linear-gradient(90deg, #FF94E1, #9B6CDC);
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
-  transform: translateZ(10px);
-}
-.main-header .button_for_action:hover + a {
-  transform: translateY(-3px);
 }
 .main-header .button_for_action a {
   color: white;
@@ -251,9 +245,24 @@ body .main-container a {
   display: inline-flex;
   padding-right: 10px;
 }
-.restaurants .restaurants_cards a .card .card-content .card-like .fa-heart {
-  font-size: 22px;
-  color: #4d4d4d;
+.restaurants .restaurants_cards a .card .card-content .card-like .label-heart {
+  display: inline-block;
+}
+.restaurants .restaurants_cards a .card .card-content .card-like .label-heart .input-heart {
+  display: none;
+}
+.restaurants .restaurants_cards a .card .card-content .card-like .label-heart .heart {
+  width: 22px;
+  stroke: black;
+  stroke-width: 22;
+  cursor: pointer;
+  color: white;
+  overflow: visible;
+  transition: all 0.3s ease;
+}
+.restaurants .restaurants_cards a .card .card-content .card-like .label-heart .input-heart:checked + .heart {
+  stroke: none;
+  color: violet;
 }
 
 .resto {
@@ -291,9 +300,28 @@ body .main-container a {
   margin-top: 40px;
   margin-bottom: 0;
 }
-.resto .menu .resto_name i {
+.resto .menu .resto_name .resto-like {
   padding-right: 4%;
   padding-top: 36px;
+}
+.resto .menu .resto_name .resto-like .label-heart {
+  display: inline-block;
+}
+.resto .menu .resto_name .resto-like .label-heart .input-heart {
+  display: none;
+}
+.resto .menu .resto_name .resto-like .label-heart .heart {
+  width: 22px;
+  stroke: black;
+  stroke-width: 22;
+  cursor: pointer;
+  color: white;
+  overflow: visible;
+  transition: all 0.3s ease;
+}
+.resto .menu .resto_name .resto-like .label-heart .input-heart:checked + .heart {
+  stroke: none;
+  color: violet;
 }
 .resto .menu .type-plats {
   display: flex;
@@ -362,19 +390,13 @@ body .main-container a {
   justify-content: center;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   border-radius: 25px;
-  cursor: default;
   padding: 16px 49px;
   margin-bottom: 60px;
-  transition: all 0.3s ease;
-  transform: translateZ(0) 400ms;
+  transition: all 0.4s ease;
 }
 .resto .menu nav .button_for_action:hover {
   background: linear-gradient(90deg, #FF94E1, #9B6CDC);
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
-  transform: translateZ(10px);
-}
-.resto .menu nav .button_for_action:hover + a {
-  transform: translateY(-3px);
 }
 .resto .menu nav .button_for_action a {
   color: white;

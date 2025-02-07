@@ -80,7 +80,22 @@
   display: inline-flex;
   padding-right: 10px;
 }
-.restaurants .restaurants_cards a .card .card-content .card-like .fa-heart {
-  font-size: 22px;
-  color: #4d4d4d;
+.restaurants .restaurants_cards a .card .card-content .card-like .label-heart {
+  display: inline-block;
+}
+.restaurants .restaurants_cards a .card .card-content .card-like .label-heart .input-heart {
+  display: none;
+}
+.restaurants .restaurants_cards a .card .card-content .card-like .label-heart .heart {
+  width: 22px;
+  stroke: black;
+  stroke-width: 22;
+  cursor: pointer;
+  color: white;
+  overflow: visible;
+  transition: all 0.3s ease;
+}
+.restaurants .restaurants_cards a .card .card-content .card-like .label-heart .input-heart:checked + .heart {
+  stroke: none;
+  color: violet;
 }/*# sourceMappingURL=restaurants_cards.css.map */

@@ -22,7 +22,6 @@ $main-police:'Roboto', sans-serif;
   justify-content: center;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   border-radius: 25px;
-  cursor: default;
 }
 @mixin button-inside-preform{
     color: white;
@@ -44,7 +43,32 @@ $main-police:'Roboto', sans-serif;
     flex-direction: column;
     justify-content: center;
 }
+@mixin heart-animation {
 
+    .label-heart {
+        display: inline-block;
+    
+        .input-heart {
+            display: none;
+        }
+    
+        .heart {
+            width: 22px;
+            stroke: black;
+            stroke-width: 22;
+            cursor: pointer;
+            color: white;
+            overflow: visible;
+            transition: all 0.3s ease;
+        }
+        
+    
+        .input-heart:checked + .heart  {
+            stroke: none;
+            color:violet
+           } 
+    }
+    }
 //**Menu**//
 
 .resto {
@@ -83,10 +107,12 @@ $main-police:'Roboto', sans-serif;
             margin-bottom: 0;
             }
 
-            i {
+            .resto-like {
             padding-right: 4%;
             padding-top: 36px;
-            }
+            
+            @include heart-animation;
+        }
             
         }
 
@@ -159,16 +185,11 @@ $main-police:'Roboto', sans-serif;
             @include button-preform;
             padding: 16px 49px; 
             margin-bottom:60px;
-            transition: all 0.3s ease;
-            transform: translateZ(0) 400ms;  
+            transition: all 0.4s ease;
                
             &:hover{ background: linear-gradient(90deg, #FF94E1, #9B6CDC);
                 box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
-                transform: translateZ(10px);
-        
-                   + a {
-                    transform:translateY(-3px);
-                   }
+
                 }
                    a {@include button-inside-preform;
                    }
