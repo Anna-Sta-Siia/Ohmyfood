@@ -117,29 +117,37 @@ $main-police:'Roboto', sans-serif;
         }
             
         }
+        .carte-plats{
+            display: flex;
+            flex-direction: column;
+            gap:40px;
 
         .type-plats {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 12px;
-
-        /* Animation */
         opacity: 0;
-        transform: translateY(20px);
-        animation: fadeInUp 1s ease-in-out forwards;
+        transform: translateX(-50%);
 
-        /* Délais pour chaque section */
-        &:nth-of-type(1) {
-            animation-delay: 0s; /* Entrées */
-        }
-        &:nth-of-type(2) {
-            animation-delay: 0.5s; /* Plats */
-        }
-        &:nth-of-type(3) {
-            animation-delay: 1s; /* Desserts */
-        }
+        /* Animation pour tous les blocs */
+        animation: fadeInLeft 1.2s cubic-bezier(0.42, 0, 0.58, 1) forwards;
 
+    /* Appliquer un délai progressif pour chaque bloc */
+    &:nth-child(1) {
+        animation-delay: 0s;
+        /* Entrées (immédiat) */
+    }
+    &:nth-child(2) {
+        animation-delay: 0.3s;
+        /* Plats (200ms plus tard) */
+    }
+    &:nth-child(3) {
+        animation-delay: 0.6s;
+     /* Desserts (400ms plus tard) */
+    }
+   
+    
 
             .name {
             display: flex;
@@ -193,22 +201,22 @@ $main-police:'Roboto', sans-serif;
                 padding: 15px;
                 }
                 }
-                    
+                
             }
         }
-
-/* Animation Keyframes */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
     }
 }
 
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
         nav {
         display: flex;
         justify-content: center;
@@ -228,4 +236,4 @@ $main-police:'Roboto', sans-serif;
                    }
             }
         }
-    }
+

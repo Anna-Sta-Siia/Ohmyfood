@@ -269,7 +269,6 @@ body .main-container a {
 .resto {
   display: flex;
   flex-direction: column;
-  /* Animation Keyframes */
 }
 .resto .resto_image {
   height: auto;
@@ -325,43 +324,51 @@ body .main-container a {
   stroke: none;
   color: violet;
 }
-.resto .menu .type-plats {
+.resto .menu .carte-plats {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.resto .menu .carte-plats .type-plats {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
-  /* Animation */
   opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1s ease-in-out forwards;
-  /* Délais pour chaque section */
+  transform: translateX(-50%);
+  /* Animation pour tous les blocs */
+  animation: fadeInLeft 1.2s cubic-bezier(0.42, 0, 0.58, 1) forwards;
+  /* Appliquer un délai progressif pour chaque bloc */
 }
-.resto .menu .type-plats:nth-of-type(1) {
-  animation-delay: 0s; /* Entrées */
+.resto .menu .carte-plats .type-plats:nth-child(1) {
+  animation-delay: 0s;
+  /* Entrées (immédiat) */
 }
-.resto .menu .type-plats:nth-of-type(2) {
-  animation-delay: 0.5s; /* Plats */
+.resto .menu .carte-plats .type-plats:nth-child(2) {
+  animation-delay: 0.3s;
+  /* Plats (200ms plus tard) */
 }
-.resto .menu .type-plats:nth-of-type(3) {
-  animation-delay: 1s; /* Desserts */
+.resto .menu .carte-plats .type-plats:nth-child(3) {
+  animation-delay: 0.6s;
+  /* Desserts (400ms plus tard) */
 }
-.resto .menu .type-plats .name {
+.resto .menu .carte-plats .type-plats .name {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-.resto .menu .type-plats .name h2 {
+.resto .menu .carte-plats .type-plats .name h2 {
   font-size: 16px;
   font-weight: 300;
   margin-bottom: 6px;
   margin-top: 0;
 }
-.resto .menu .type-plats .name .underline {
+.resto .menu .carte-plats .type-plats .name .underline {
   width: 40px;
   background-color: #99E2D0;
   height: 3px;
 }
-.resto .menu .type-plats .variant-plat {
+.resto .menu .carte-plats .type-plats .variant-plat {
   justify-content: space-between;
   align-items: flex-end;
   background-color: white;
@@ -371,41 +378,42 @@ body .main-container a {
   border-radius: 20px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
-.resto .menu .type-plats .variant-plat .plat {
+.resto .menu .carte-plats .type-plats .variant-plat .plat {
   display: flex;
   flex-direction: column;
   padding: 15px;
   gap: 5px;
 }
-.resto .menu .type-plats .variant-plat .plat .plat-first_line {
+.resto .menu .carte-plats .type-plats .variant-plat .plat .plat-first_line {
   font-size: 18px;
   font-weight: 500;
 }
-.resto .menu .type-plats .variant-plat .plat .plat-second_line {
+.resto .menu .carte-plats .type-plats .variant-plat .plat .plat-second_line {
   font-size: 15px;
   font-weight: 300;
 }
-.resto .menu .type-plats .variant-plat .prix {
+.resto .menu .carte-plats .type-plats .variant-plat .prix {
   font-size: 15px;
   font-weight: 700;
   padding: 15px;
 }
-@keyframes fadeInUp {
+
+@keyframes fadeInLeft {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateX(-50%);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
-.resto nav {
+nav {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.resto nav .button_for_action {
+nav .button_for_action {
   display: inline-flex;
   height: 50px;
   width: -moz-fit-content;
@@ -420,11 +428,11 @@ body .main-container a {
   margin-bottom: 60px;
   transition: all 0.4s ease;
 }
-.resto nav .button_for_action:hover {
+nav .button_for_action:hover {
   background: linear-gradient(90deg, #FF94E1, #9B6CDC);
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
 }
-.resto nav .button_for_action a {
+nav .button_for_action a {
   color: white;
   font-size: 16px;
   font-weight: 500;
