@@ -47,10 +47,12 @@ $main-police:'Roboto', sans-serif;
 
     .label-heart {
         display: inline-block;
-    
-        .input-heart {
-            display: none;
+
+        
+    .input-heart {
+         display: none;
         }
+       
     
         .heart {
             width: 22px;
@@ -63,7 +65,7 @@ $main-police:'Roboto', sans-serif;
         }
         
     
-        .input-heart:checked + .heart  {
+       .input-heart:checked + .heart{
             stroke: none;
             color:violet
            } 
@@ -122,6 +124,22 @@ $main-police:'Roboto', sans-serif;
         align-items: flex-start;
         gap: 12px;
 
+        /* Animation */
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1s ease-in-out forwards;
+
+        /* Délais pour chaque section */
+        &:nth-of-type(1) {
+            animation-delay: 0s; /* Entrées */
+        }
+        &:nth-of-type(2) {
+            animation-delay: 0.5s; /* Plats */
+        }
+        &:nth-of-type(3) {
+            animation-delay: 1s; /* Desserts */
+        }
+
 
             .name {
             display: flex;
@@ -148,7 +166,7 @@ $main-police:'Roboto', sans-serif;
             background-color: white;
             width: 100%;
             @include long-button-preform;
-            
+                 
 
                 .plat {
                 display: flex;
@@ -166,6 +184,7 @@ $main-police:'Roboto', sans-serif;
                      font-size: 15px;
                     font-weight: 300;
                     }
+                    
                 }
 
                 .prix {
@@ -173,8 +192,22 @@ $main-police:'Roboto', sans-serif;
                 font-weight: 700;
                 padding: 15px;
                 }
+                }
+                    
             }
         }
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
         nav {
         display: flex;
@@ -196,4 +229,3 @@ $main-police:'Roboto', sans-serif;
             }
         }
     }
-}
