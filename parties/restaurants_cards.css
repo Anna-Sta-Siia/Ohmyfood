@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .restaurants {
   background-color: #F3F3F3;
   display: flex;
@@ -61,6 +62,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 14px 10px;
+  /* Animation pour l'icône solid */
+  /* Animation pour l'icône solid */
 }
 .restaurants .restaurants_cards a .card .card-content .card-txt {
   display: flex;
@@ -76,26 +79,84 @@
   font-weight: 300;
   margin: 0;
 }
-.restaurants .restaurants_cards a .card .card-content .card-like {
-  display: inline-flex;
-  padding-right: 10px;
-}
-.restaurants .restaurants_cards a .card .card-content .card-like .label-heart {
+.restaurants .restaurants_cards a .card .card-content .like {
+  position: relative;
   display: inline-block;
-}
-.restaurants .restaurants_cards a .card .card-content .card-like .label-heart .input-heart {
-  display: none;
-}
-.restaurants .restaurants_cards a .card .card-content .card-like .label-heart .heart {
   width: 22px;
-  stroke: black;
-  stroke-width: 22;
+  height: 22px;
   cursor: pointer;
-  color: white;
-  overflow: visible;
-  transition: all 0.3s ease;
+  padding-right: 4%;
+  top: -4px;
+  /* Icône regular (non remplie) */
+  /* Icône solid (remplie) */
+  /* Au survol du conteneur */
 }
-.restaurants .restaurants_cards a .card .card-content .card-like .label-heart .input-heart:checked + .heart {
-  stroke: none;
-  color: violet;
+.restaurants .restaurants_cards a .card .card-content .like .regular {
+  position: absolute;
+  font-size: 22px;
+  top: 0;
+  left: 0;
+  color: black; /* Par défaut, noire */
+  z-index: 2; /* Toujours au-dessus par défaut */
+  animation: fill-thinheart 2s ease-in-out forwards;
+  animation-play-state: paused;
+}
+.restaurants .restaurants_cards a .card .card-content .like .solid {
+  position: absolute;
+  font-size: 22px;
+  top: 0;
+  left: 0;
+  color: white; /* Par défaut, blanche ou invisible */
+  opacity: 0; /* Invisible par défaut */
+  z-index: 1; /* Derrière regular par défaut */
+  animation: fill-fullheart 2s ease-in-out forwards;
+  animation-play-state: paused;
+}
+.restaurants .restaurants_cards a .card .card-content .like:hover .regular {
+  animation-play-state: running;
+}
+.restaurants .restaurants_cards a .card .card-content .like:hover .solid {
+  animation-play-state: running;
+}
+.restaurants .restaurants_cards a .card .card-content .like:active .regular {
+  animation: empty-thinheart 0.5s ease-in-out forwards;
+}
+.restaurants .restaurants_cards a .card .card-content .like:active .solid {
+  animation: empty-fullheart 0.5s ease-in-out forwards;
+}
+@keyframes fill-thinheart {
+  0% {
+    color: black; /* Départ en noir */
+  }
+  100% {
+    color: #9356DC; /* Fin en violet */
+  }
+}
+@keyframes fill-fullheart {
+  0% {
+    color: white; /* Départ en blanc */
+    opacity: 0; /* Invisible */
+  }
+  100% {
+    color: #9356DC; /* Fin en violet */
+    opacity: 1; /* Complètement visible */
+  }
+}
+@keyframes empty-thinheart {
+  0% {
+    color: #9356DC; /* Départ en violet */
+  }
+  100% {
+    color: black; /* Fin en black */
+  }
+}
+@keyframes empty-fullheart {
+  0% {
+    color: #9356DC; /* Départ en violet */
+    opacity: 1; /* Visible */
+  }
+  100% {
+    color: white; /* Fin en blanc */
+    opacity: 0; /* Complètement invisible */
+  }
 }/*# sourceMappingURL=restaurants_cards.css.map */

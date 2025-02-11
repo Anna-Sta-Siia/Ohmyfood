@@ -227,6 +227,8 @@ body .main-container a {
   justify-content: space-between;
   align-items: center;
   padding: 14px 10px;
+  /* Animation pour l'icône solid */
+  /* Animation pour l'icône solid */
 }
 .restaurants .restaurants_cards a .card .card-content .card-txt {
   display: flex;
@@ -242,28 +244,86 @@ body .main-container a {
   font-weight: 300;
   margin: 0;
 }
-.restaurants .restaurants_cards a .card .card-content .card-like {
-  display: inline-flex;
-  padding-right: 10px;
-}
-.restaurants .restaurants_cards a .card .card-content .card-like .label-heart {
+.restaurants .restaurants_cards a .card .card-content .like {
+  position: relative;
   display: inline-block;
-}
-.restaurants .restaurants_cards a .card .card-content .card-like .label-heart .input-heart {
-  display: none;
-}
-.restaurants .restaurants_cards a .card .card-content .card-like .label-heart .heart {
   width: 22px;
-  stroke: black;
-  stroke-width: 22;
+  height: 22px;
   cursor: pointer;
-  color: white;
-  overflow: visible;
-  transition: all 0.3s ease;
+  padding-right: 4%;
+  top: -4px;
+  /* Icône regular (non remplie) */
+  /* Icône solid (remplie) */
+  /* Au survol du conteneur */
 }
-.restaurants .restaurants_cards a .card .card-content .card-like .label-heart .input-heart:checked + .heart {
-  stroke: none;
-  color: violet;
+.restaurants .restaurants_cards a .card .card-content .like .regular {
+  position: absolute;
+  font-size: 22px;
+  top: 0;
+  left: 0;
+  color: black; /* Par défaut, noire */
+  z-index: 2; /* Toujours au-dessus par défaut */
+  animation: fill-thinheart 2s ease-in-out forwards;
+  animation-play-state: paused;
+}
+.restaurants .restaurants_cards a .card .card-content .like .solid {
+  position: absolute;
+  font-size: 22px;
+  top: 0;
+  left: 0;
+  color: white; /* Par défaut, blanche ou invisible */
+  opacity: 0; /* Invisible par défaut */
+  z-index: 1; /* Derrière regular par défaut */
+  animation: fill-fullheart 2s ease-in-out forwards;
+  animation-play-state: paused;
+}
+.restaurants .restaurants_cards a .card .card-content .like:hover .regular {
+  animation-play-state: running;
+}
+.restaurants .restaurants_cards a .card .card-content .like:hover .solid {
+  animation-play-state: running;
+}
+.restaurants .restaurants_cards a .card .card-content .like:active .regular {
+  animation: empty-thinheart 0.5s ease-in-out forwards;
+}
+.restaurants .restaurants_cards a .card .card-content .like:active .solid {
+  animation: empty-fullheart 0.5s ease-in-out forwards;
+}
+@keyframes fill-thinheart {
+  0% {
+    color: black; /* Départ en noir */
+  }
+  100% {
+    color: #9356DC; /* Fin en violet */
+  }
+}
+@keyframes fill-fullheart {
+  0% {
+    color: white; /* Départ en blanc */
+    opacity: 0; /* Invisible */
+  }
+  100% {
+    color: #9356DC; /* Fin en violet */
+    opacity: 1; /* Complètement visible */
+  }
+}
+@keyframes empty-thinheart {
+  0% {
+    color: #9356DC; /* Départ en violet */
+  }
+  100% {
+    color: black; /* Fin en black */
+  }
+}
+@keyframes empty-fullheart {
+  0% {
+    color: #9356DC; /* Départ en violet */
+    opacity: 1; /* Visible */
+  }
+  100% {
+    color: white; /* Fin en blanc */
+    opacity: 0; /* Complètement invisible */
+  }
 }
 
 .resto {
@@ -292,6 +352,8 @@ body .main-container a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* Animation pour l'icône solid */
+  /* Animation pour l'icône solid */
 }
 .resto .menu .resto_name h1 {
   font-family: "Shrikhand", sans-serif;
@@ -301,35 +363,93 @@ body .main-container a {
   margin-top: 40px;
   margin-bottom: 0;
 }
-.resto .menu .resto_name .resto-like {
-  padding-right: 4%;
-  padding-top: 36px;
-}
-.resto .menu .resto_name .resto-like .label-heart {
+.resto .menu .resto_name .like {
+  position: relative;
   display: inline-block;
-}
-.resto .menu .resto_name .resto-like .label-heart .input-heart {
-  display: none;
-}
-.resto .menu .resto_name .resto-like .label-heart .heart {
   width: 22px;
-  stroke: black;
-  stroke-width: 22;
+  height: 22px;
   cursor: pointer;
-  color: white;
-  overflow: visible;
-  transition: all 0.3s ease;
+  padding-right: 4%;
+  top: -4px;
+  /* Icône regular (non remplie) */
+  /* Icône solid (remplie) */
+  /* Au survol du conteneur */
 }
-.resto .menu .resto_name .resto-like .label-heart .input-heart:checked + .heart {
-  stroke: none;
-  color: violet;
+.resto .menu .resto_name .like .regular {
+  position: absolute;
+  font-size: 22px;
+  top: 0;
+  left: 0;
+  color: black; /* Par défaut, noire */
+  z-index: 2; /* Toujours au-dessus par défaut */
+  animation: fill-thinheart 2s ease-in-out forwards;
+  animation-play-state: paused;
 }
-.resto .menu .carte-plats {
+.resto .menu .resto_name .like .solid {
+  position: absolute;
+  font-size: 22px;
+  top: 0;
+  left: 0;
+  color: white; /* Par défaut, blanche ou invisible */
+  opacity: 0; /* Invisible par défaut */
+  z-index: 1; /* Derrière regular par défaut */
+  animation: fill-fullheart 2s ease-in-out forwards;
+  animation-play-state: paused;
+}
+.resto .menu .resto_name .like:hover .regular {
+  animation-play-state: running;
+}
+.resto .menu .resto_name .like:hover .solid {
+  animation-play-state: running;
+}
+.resto .menu .resto_name .like:active .regular {
+  animation: empty-thinheart 0.5s ease-in-out forwards;
+}
+.resto .menu .resto_name .like:active .solid {
+  animation: empty-fullheart 0.5s ease-in-out forwards;
+}
+@keyframes fill-thinheart {
+  0% {
+    color: black; /* Départ en noir */
+  }
+  100% {
+    color: #9356DC; /* Fin en violet */
+  }
+}
+@keyframes fill-fullheart {
+  0% {
+    color: white; /* Départ en blanc */
+    opacity: 0; /* Invisible */
+  }
+  100% {
+    color: #9356DC; /* Fin en violet */
+    opacity: 1; /* Complètement visible */
+  }
+}
+@keyframes empty-thinheart {
+  0% {
+    color: #9356DC; /* Départ en violet */
+  }
+  100% {
+    color: black; /* Fin en black */
+  }
+}
+@keyframes empty-fullheart {
+  0% {
+    color: #9356DC; /* Départ en violet */
+    opacity: 1; /* Visible */
+  }
+  100% {
+    color: white; /* Fin en blanc */
+    opacity: 0; /* Complètement invisible */
+  }
+}
+.resto .carte-plats {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
-.resto .menu .carte-plats .type-plats {
+.resto .carte-plats .type-plats {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -337,38 +457,38 @@ body .main-container a {
   opacity: 0;
   transform: translateX(-50%);
   /* Animation pour tous les blocs */
-  animation: fadeInLeft 1.2s cubic-bezier(0.42, 0, 0.58, 1) forwards;
+  animation: platsappear 1.2s cubic-bezier(0.42, 0, 0.58, 1) forwards;
   /* Appliquer un délai progressif pour chaque bloc */
 }
-.resto .menu .carte-plats .type-plats:nth-child(1) {
+.resto .carte-plats .type-plats:nth-child(1) {
   animation-delay: 0s;
   /* Entrées (immédiat) */
 }
-.resto .menu .carte-plats .type-plats:nth-child(2) {
+.resto .carte-plats .type-plats:nth-child(2) {
   animation-delay: 0.3s;
   /* Plats (200ms plus tard) */
 }
-.resto .menu .carte-plats .type-plats:nth-child(3) {
+.resto .carte-plats .type-plats:nth-child(3) {
   animation-delay: 0.6s;
   /* Desserts (400ms plus tard) */
 }
-.resto .menu .carte-plats .type-plats .name {
+.resto .carte-plats .type-plats .name {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-.resto .menu .carte-plats .type-plats .name h2 {
+.resto .carte-plats .type-plats .name h2 {
   font-size: 16px;
   font-weight: 300;
   margin-bottom: 6px;
   margin-top: 0;
 }
-.resto .menu .carte-plats .type-plats .name .underline {
+.resto .carte-plats .type-plats .name .underline {
   width: 40px;
   background-color: #99E2D0;
   height: 3px;
 }
-.resto .menu .carte-plats .type-plats .variant-plat {
+.resto .carte-plats .type-plats .variant-plat {
   justify-content: space-between;
   align-items: flex-end;
   background-color: white;
@@ -378,27 +498,27 @@ body .main-container a {
   border-radius: 20px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
-.resto .menu .carte-plats .type-plats .variant-plat .plat {
+.resto .carte-plats .type-plats .variant-plat .plat {
   display: flex;
   flex-direction: column;
   padding: 15px;
   gap: 5px;
 }
-.resto .menu .carte-plats .type-plats .variant-plat .plat .plat-first_line {
+.resto .carte-plats .type-plats .variant-plat .plat .plat-first_line {
   font-size: 18px;
   font-weight: 500;
 }
-.resto .menu .carte-plats .type-plats .variant-plat .plat .plat-second_line {
+.resto .carte-plats .type-plats .variant-plat .plat .plat-second_line {
   font-size: 15px;
   font-weight: 300;
 }
-.resto .menu .carte-plats .type-plats .variant-plat .prix {
+.resto .carte-plats .type-plats .variant-plat .prix {
   font-size: 15px;
   font-weight: 700;
   padding: 15px;
 }
 
-@keyframes fadeInLeft {
+@keyframes platsappear {
   from {
     opacity: 0;
     transform: translateX(-50%);

@@ -13,8 +13,7 @@ $main-police: 'Roboto', sans-serif;
 
 @mixin secondary-writingstyle {
     font-family: 'Shrikhand', sans-serif;
-    ;
-    font-style: italic
+    font-style: italic;
 }
 
 @mixin button-preform {
@@ -47,32 +46,8 @@ $main-police: 'Roboto', sans-serif;
     justify-content: center;
 }
 
-@mixin heart-animation {
 
-.label-heart {
-    display: inline-block;
 
-    .input-heart {
-        display: none;
-    }
-
-    .heart {
-        width: 22px;
-        stroke: black;
-        stroke-width: 22;
-        cursor: pointer;
-        color: white;
-        overflow: visible;
-        transition: all 0.3s ease;
-    }
-    
-
-    .input-heart:checked + .heart  {
-        stroke: none;
-        color:violet
-       } 
-}
-}
 //**Restaurants**//
 
 .restaurants {
@@ -161,14 +136,109 @@ $main-police: 'Roboto', sans-serif;
                         }
                     }
 
-                    .card-like {
-                        display: inline-flex;
-                        padding-right: 10px;
+                    .like {
+                        position: relative;
+                        display: inline-block; 
+                        width: 22px; 
+                        height: 22px;
+                        cursor: pointer;
+                        padding-right: 4%;
+                        top:-4px;
+                    
+                    
+                    /* Icône regular (non remplie) */
+                    .regular {
+                        position: absolute;
+                        font-size: 22px;
+                        top: 0;
+                        left: 0;
+                        color: black; /* Par défaut, noire */
+                        z-index: 2; /* Toujours au-dessus par défaut */
+                        animation:fill-thinheart 2s ease-in-out forwards;
+                        animation-play-state: paused;
+                    }
 
-                        @include heart-animation;
-                    }  
+                    /* Icône solid (remplie) */
+                    .solid {
+                        position: absolute;
+                        font-size: 22px;
+                        top: 0;
+                        left: 0;
+                        color: white; /* Par défaut, blanche ou invisible */
+                        opacity: 0; /* Invisible par défaut */
+                        z-index: 1;/* Derrière regular par défaut */
+                        animation:fill-fullheart 2s ease-in-out forwards;
+                        animation-play-state: paused;
+                     }
+
+                         /* Au survol du conteneur */
+                         &:hover {
+                        .regular {
+                            animation-play-state: running;
+                         }
+
+                        .solid {
+                            animation-play-state: running;
+                       
+                        }
+                         }
+
+                         &:active {
+                            .regular {
+                                
+                                animation:empty-thinheart 0.5s ease-in-out forwards;
+                             }
+    
+                            .solid {
+                                animation:empty-fullheart 0.5s ease-in-out forwards;
+                            }
+                             }
+                    }
+        
+                
+                    @keyframes fill-thinheart {
+                        0% {
+                            color: black; /* Départ en noir */
+                        }
+                        100% {
+                            color: $third-violet-color; /* Fin en violet */
+                        }
+                    }
+                    /* Animation pour l'icône solid */
+                    @keyframes fill-fullheart {
+             0% {
+             color: white; /* Départ en blanc */
+            opacity: 0; /* Invisible */
+        }
+        100% {
+            color: $third-violet-color; /* Fin en violet */
+            opacity: 1; /* Complètement visible */
+        }
+    }
+    @keyframes empty-thinheart {
+        0% {
+            color: $third-violet-color; /* Départ en violet */
+        }
+        100% {
+            color: black; /* Fin en black */
+        }
+    }
+    /* Animation pour l'icône solid */
+    @keyframes empty-fullheart {
+0% {
+color:$third-violet-color; /* Départ en violet */
+opacity: 1; /* Visible */
+}
+100% {
+color: white; /* Fin en blanc */
+opacity: 0; /* Complètement invisible */
+}
+}
+}
+
                 }
-            }
+            
         }
     }
 }
+
