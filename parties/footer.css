@@ -34,4 +34,28 @@
   color: white;
   font-size: 16px;
   font-weight: 400;
+}
+
+/****** Media queries ***********/
+/* Medium devices (tablets, less/equal than 1024px) */
+@media (min-width: 769px) and (max-width: 1440px) {
+  .footer {
+    flex-direction: row;
+    padding-top: 40px;
+    padding-bottom: 10px;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .footer .footer-logo {
+    order: 2;
+    position: relative;
+    padding: 0;
+    right: 3%;
+    bottom: 5px;
+  }
+  .footer .footer_list {
+    flex-direction: row;
+    padding-right: 10%;
+    gap: 16px;
+  }
 }/*# sourceMappingURL=footer.css.map */

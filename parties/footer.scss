@@ -22,7 +22,7 @@ $main-police:'Roboto', sans-serif;
   justify-content: center;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   border-radius: 25px;
-  cursor: default;
+  cursor: pointer;
 }
 
 @mixin image-preform {
@@ -34,11 +34,6 @@ $main-police:'Roboto', sans-serif;
     height: 72px;
     border-radius: 20px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-}
-@mixin section-preform {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 //**Footer**//
@@ -86,4 +81,28 @@ $main-police:'Roboto', sans-serif;
             }
         }
     }
+}
+/****** Media queries ***********/
+/* Medium devices (tablets, less/equal than 1024px) */
+@media (min-width: 769px) and (max-width: 1440px){
+.footer{
+    flex-direction: row;
+    padding-top:40px ;
+    padding-bottom: 10px;
+    justify-content: flex-end;
+    align-items: center;
+
+    .footer-logo{
+        order: 2;
+        position: relative;
+        padding: 0;
+        right: 3%;
+        bottom: 5px;
+    }
+    .footer_list{
+        flex-direction: row;
+        padding-right: 10%;
+        gap: 16px;
+    }
+}
 }

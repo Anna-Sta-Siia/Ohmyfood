@@ -1,48 +1,51 @@
 //Mes variables//
 
-$main-grey-color:#F3F3F3;
-$secondary-rose-color:#FF79DA;
-$third-violet-color:#9356DC;
-$fourth-green-color:#99E2D0;
-$main-police:'Roboto', sans-serif;
+$main-grey-color: #F3F3F3;
+$secondary-rose-color: #FF79DA;
+$third-violet-color: #9356DC;
+$fourth-green-color: #99E2D0;
+$main-police: 'Roboto', sans-serif;
 
 //Mes mixins//
-@mixin long-button-shadow { box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);}
-@mixin secondary-writingstyle {
-    font-family:'Shrikhand', sans-serif; 
-    font-style: italic;
-  }
-  @mixin button-preform {
-  display: inline-flex;
-  height: 50px;
-  width: fit-content;
-  box-sizing: border-box;
-  background: linear-gradient(90deg, $secondary-rose-color, $third-violet-color);
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 25px;
+@mixin long-button-shadow {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
-@mixin button-inside-preform{
+
+@mixin secondary-writingstyle {
+    font-family: 'Shrikhand', sans-serif;
+    font-style: italic;
+}
+
+@mixin button-preform {
+    display: inline-flex;
+    height: 50px;
+    width: fit-content;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, $secondary-rose-color, $third-violet-color);
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+}
+
+@mixin button-inside-preform {
     color: white;
     font-size: 16px;
     font-weight: 500;
 }
+
 @mixin image-preform {
     object-fit: cover;
     flex-grow: 1;
 }
+
 @mixin long-button-preform {
     display: flex;
     height: 72px;
     border-radius: 20px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
-@mixin section-preform {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+
 
 //**Menu**//
 
@@ -51,253 +54,320 @@ $main-police:'Roboto', sans-serif;
     flex-direction: column;
 
     .resto_image {
-    height: auto;
-    @include image-preform;
-    aspect-ratio: 3/2.1;
+        height: auto;
+        @include image-preform;
+        aspect-ratio: 3/2.1;
     }
 
     .menu {
-    border-radius: 40px 40px 0 0;
-    display: flex;
-    flex-direction: column;
-    background-color: $main-grey-color;
-    margin-top: -13%;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 0 3%;
-    gap: 40px;
+        border-radius: 40px 40px 0 0;
+        display: flex;
+        flex-direction: column;
+        background-color: $main-grey-color;
+        margin-top: -13%;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 3%;
+        gap: 40px;
 
 
         .resto_name {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
 
             h1 {
-            @include secondary-writingstyle;
-            font-size: 28px;
-            font-weight: 400;
-            margin-top: 40px;
-            margin-bottom: 0;
+                @include secondary-writingstyle;
+                font-size: 28px;
+                font-weight: 400;
+                margin-top: 40px;
+                margin-bottom: 0;
             }
 
             .like {
                 position: relative;
-                display: inline-block; 
-                width: 22px; 
+                display: inline-block;
+                width: 22px;
                 height: 22px;
                 cursor: pointer;
                 padding-right: 4%;
-                top:-4px;
-            
-            
-            /* Icône regular (non remplie) */
-            .regular {
-                position: absolute;
-                font-size: 22px;
-                top: 0;
-                left: 0;
-                color: black; /* Par défaut, noire */
-                z-index: 2; /* Toujours au-dessus par défaut */
-                animation:fill-thinheart 2s ease-in-out forwards;
-                animation-play-state: paused;
-            }
+                top: -4px;
 
-            /* Icône solid (remplie) */
-            .solid {
-                position: absolute;
-                font-size: 22px;
-                top: 0;
-                left: 0;
-                color: white; /* Par défaut, blanche ou invisible */
-                opacity: 0; /* Invisible par défaut */
-                z-index: 1;/* Derrière regular par défaut */
-                animation:fill-fullheart 2s ease-in-out forwards;
-                animation-play-state: paused;
-             }
-
-                 /* Au survol du conteneur */
-                 &:hover {
+                .input-like{display: none;}
+                /* Icône regular (non remplie) */
                 .regular {
-                    animation-play-state: running;
-                 }
+                    position: absolute;
+                    font-size: 22px;
+                    top: 0;
+                    left: 0;
+                    color: black;
+                    /* Par défaut, noire */
+                    z-index: 2;
+                    /* Toujours au-dessus par défaut */
+                    transition: color 1s ease-in-out;}
+                    
+                    .input-like:checked +.regular{color: $third-violet-color;}
+                    .input-like:checked ~ .solid{color: $third-violet-color;opacity: 1;}
+                    .input-choice:not(:checked) +.regular{color: $third-violet-color;}
+                    .input-l:not(:checked) ~.solid{color: white;opacity: 0;}
+                
 
+                /* Icône solid (remplie) */
                 .solid {
-                    animation-play-state: running;
-               
+                    position: absolute;
+                    font-size: 22px;
+                    top: 0;
+                    left: 0;
+                    color: white;
+                    /* Par défaut, blanche ou invisible */
+                    opacity: 0;
+                    /* Invisible par défaut */
+                    z-index: 1;
+                    /* Derrière regular par défaut */
+                    transition: all 1s ease-in-out;
                 }
-                 }
-
-                 &:active {
-                    .regular {
-                        
-                        animation:empty-thinheart 0.5s ease-in-out forwards;
-                     }
-
-                    .solid {
-                        animation:empty-fullheart 0.5s ease-in-out forwards;
-                    }
-                     }
-            }
-            @keyframes fill-thinheart {
-                0% {
-                    color: black; /* Départ en noir */
-                }
-                100% {
-                    color: $third-violet-color; /* Fin en violet */
-                }
-            }
-            /* Animation pour l'icône solid */
-            @keyframes fill-fullheart {
-     0% {
-     color: white; /* Départ en blanc */
-    opacity: 0; /* Invisible */
-}
-100% {
-    color: $third-violet-color; /* Fin en violet */
-    opacity: 1; /* Complètement visible */
-}
-}
-@keyframes empty-thinheart {
-0% {
-    color: $third-violet-color; /* Départ en violet */
-}
-100% {
-    color: black; /* Fin en black */
-}
-}
-/* Animation pour l'icône solid */
-@keyframes empty-fullheart {
-0% {
-color:$third-violet-color; /* Départ en violet */
-opacity: 1; /* Visible */
-}
-100% {
-color: white; /* Fin en blanc */
-opacity: 0; /* Complètement invisible */
-}
-}
-        }
             
+            }
         }
-        .carte-plats{
-            display: flex;
-            flex-direction: column;
-            gap:40px;
 
-        .type-plats {
+    }
+
+    .carte-plats {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        opacity: 0;
-        transform: translateX(-50%);
+        gap: 40px;
 
-        /* Animation pour tous les blocs */
-        animation: platsappear 1.2s cubic-bezier(0.42, 0, 0.58, 1) forwards;
-
-    /* Appliquer un délai progressif pour chaque bloc */
-    &:nth-child(1) {
-        animation-delay: 0s;
-        /* Entrées (immédiat) */
-    }
-    &:nth-child(2) {
-        animation-delay: 0.3s;
-        /* Plats (200ms plus tard) */
-    }
-    &:nth-child(3) {
-        animation-delay: 0.6s;
-     /* Desserts (400ms plus tard) */
-    }
-   
-    
-
-            .name {
+        .type-plats {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            gap: 12px;
+            opacity: 0;
+            transform: translateX(-50%);
+
+            /* Animation pour tous les blocs */
+            animation: platsappear 1.2s cubic-bezier(0.42, 0, 0.58, 1) forwards;
+
+            /* Appliquer un délai progressif pour chaque bloc */
+            &:nth-child(1) {
+                animation-delay: 0s;
+                /* Entrées (immédiat) */
+            }
+
+            &:nth-child(2) {
+                animation-delay: 0.3s;
+                /* Plats (200ms plus tard) */
+            }
+
+            &:nth-child(3) {
+                animation-delay: 0.6s;
+                /* Desserts (400ms plus tard) */
+            }
+
+
+
+            .name {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
 
                 h2 {
-                font-size: 16px;
-                font-weight: 300;
-                margin-bottom: 6px;
-                margin-top: 0;
+                    font-size: 16px;
+                    font-weight: 300;
+                    margin-bottom: 6px;
+                    margin-top: 0;
                 }
 
                 .underline {
-                width: 40px;
-                background-color: $fourth-green-color;
-                height: 3px;
+                    width: 40px;
+                    background-color: $fourth-green-color;
+                    height: 3px;
                 }
             }
 
+            
             .variant-plat {
-            justify-content: space-between;
-            align-items: flex-end;
-            background-color: white;
-            width: 100%;
-            @include long-button-preform;
-                 
+                align-items: flex-end;
+                justify-content: space-between;
+                background-color: white;
+                width: 100%;
+                @include long-button-preform;
+                overflow: hidden;
+                cursor: pointer;
 
+                .input-choice {
+                    display: none;
+                 }
+                 .input-choice:checked ~ .plat .plat-first_line,
+.input-choice:checked ~ .plat .plat-second_line{
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
                 .plat {
-                display: flex;
-                flex-direction: column;
-                padding: 15px;
-                gap: 5px;
+                    display: flex;
+                    flex-direction: column;
+                    padding: 15px;
+                    gap: 5px;
+                    max-width: 55%;
+                    white-space: nowrap;
+                
 
 
                     .plat-first_line {
-                    font-size: 18px;
-                    font-weight: 500;
+                        font-size: 18px;
+                        font-weight: 500;
+                        transition: all 0.5s ;
                     }
 
                     .plat-second_line {
-                     font-size: 15px;
-                    font-weight: 300;
+                        font-size: 15px;
+                        font-weight: 300;
+                        transition: all 0.5s ;
                     }
-                    
-                }
 
-                .prix {
-                font-size: 15px;
-                font-weight: 700;
-                padding: 15px;
-                }
                 }
                 
+              
+           
+
+                .input-choice:checked ~.choiceplat {
+                    transform: translateX(0);
+                    transition: transform 1s ease-in-out;
+                }
+
+                .input-choice:not(:checked)~.choiceplat {
+                    transform: translateX(50%);
+                    transition: transform 1s ease-in-out;
+                }
+
+
+                .choiceplat {
+                    display: flex;
+                    box-sizing: border-box;
+                    width: 33%;
+                    height: 100%;
+                    align-items: flex-end;
+                    justify-content: flex-end;
+                    transform: translateX(50%);
+                    gap: 15px;
+                    
+
+                    .prix {
+                        font-size: 15px;
+                        font-weight: 700;
+                        padding: 15px 0;
+                    }
+
+
+                    .coulisse {
+                        width: 50%;
+                        height: 100%;
+                        background: $fourth-green-color;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        box-sizing: border-box;
+
+
+
+                        .check-icon {
+                            font-size: 18px;
+                            background-color: white;
+                            color: $fourth-green-color;
+                            display: flex;
+                            width: 24px;
+                            height: 24px;
+                            border-radius: 50px;
+                            justify-content: center;
+                            align-items: center;
+
+                        }
+                    }
+                }
+
             }
+        
+
+
+
         }
     }
 
+    @keyframes platsappear {
+        from {
+            opacity: 0;
+            transform: translateX(-50%);
+        }
 
-@keyframes platsappear {
-    from {
-        opacity: 0;
-        transform: translateX(-50%);
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
     }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-        nav {
+
+    nav {
         display: flex;
         justify-content: center;
         align-items: center;
 
         .button_for_action {
             @include button-preform;
-            padding: 16px 49px; 
-            margin-bottom:60px;
+            padding: 16px 49px;
+            margin-bottom: 60px;
             transition: all 0.4s ease;
-               
-            &:hover{ background: linear-gradient(90deg, #FF94E1, #9B6CDC);
+
+            &:hover {
+                background: linear-gradient(90deg, #FF94E1, #9B6CDC);
                 box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
 
-                }
-                   a {@include button-inside-preform;
-                   }
+            }
+
+            a {
+                @include button-inside-preform;
             }
         }
+    }
+}
 
+/****** Media queries ***********/
+/* Medium devices (tablets, less/equal than 1024px) */
+@media (min-width: 769px) and (max-width: 1440px) {
+
+    body {
+        .main-container {
+            max-width: 1440px;
+
+            .resto {
+                align-items: center;
+
+                .resto_image {
+                    height: 380px;
+                    width: 100%;
+                }
+
+                .menu {
+                    width: 73%;
+                    margin-top: -5%;
+
+                    .resto_name {
+                        justify-content: center;
+                        gap: 20px;
+
+                        .like {
+                            top: 19px;
+                        }
+                    }
+
+                    .carte-plats {
+                        padding: 0 20%;
+                    }
+                }
+            nav{
+
+                .button_for_action{margin-bottom: 30px;}
+            }
+            }
+        }
+    }
+}

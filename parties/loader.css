@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /* Style du loader */
-.loader-wrapper {
+.loader-box {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,15 +11,15 @@
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  animation: fadeOut 3s ease-in-out forwards;
+  animation: loaderout 5s ease-in-out forwards;
   /* 🔹 Loader en forme de couteau et fourchette */
 }
-.loader-wrapper .loader {
+.loader-box .loader {
   font-size: 60px;
   display: flex;
   gap: 10px;
   color: #99E2D0;
-  animation: spin 1.5s linear infinite;
+  animation: spin 2.5s linear infinite;
 }
 
 /* 🔹 Animation de rotation */
@@ -32,7 +32,7 @@
   }
 }
 /* 🔹 Animation pour faire disparaître le loader */
-@keyframes fadeOut {
+@keyframes loaderout {
   0% {
     opacity: 1;
     visibility: visible;

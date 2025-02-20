@@ -62,8 +62,6 @@
   justify-content: space-between;
   align-items: center;
   padding: 14px 10px;
-  /* Animation pour l'icône solid */
-  /* Animation pour l'icône solid */
 }
 .restaurants .restaurants_cards a .card .card-content .card-txt {
   display: flex;
@@ -89,74 +87,64 @@
   top: -4px;
   /* Icône regular (non remplie) */
   /* Icône solid (remplie) */
-  /* Au survol du conteneur */
+}
+.restaurants .restaurants_cards a .card .card-content .like .input-like {
+  display: none;
 }
 .restaurants .restaurants_cards a .card .card-content .like .regular {
   position: absolute;
   font-size: 22px;
   top: 0;
   left: 0;
-  color: black; /* Par défaut, noire */
-  z-index: 2; /* Toujours au-dessus par défaut */
-  animation: fill-thinheart 2s ease-in-out forwards;
-  animation-play-state: paused;
+  color: black;
+  /* Par défaut, noire */
+  z-index: 2;
+  /* Toujours au-dessus par défaut */
+  transition: color 1s ease-in-out;
+}
+.restaurants .restaurants_cards a .card .card-content .like .input-like:checked + .regular {
+  color: #9356DC;
+}
+.restaurants .restaurants_cards a .card .card-content .like .input-like:checked ~ .solid {
+  color: #9356DC;
+  opacity: 1;
+}
+.restaurants .restaurants_cards a .card .card-content .like .input-choice:not(:checked) + .regular {
+  color: #9356DC;
+}
+.restaurants .restaurants_cards a .card .card-content .like .input-l:not(:checked) ~ .solid {
+  color: white;
+  opacity: 0;
 }
 .restaurants .restaurants_cards a .card .card-content .like .solid {
   position: absolute;
   font-size: 22px;
   top: 0;
   left: 0;
-  color: white; /* Par défaut, blanche ou invisible */
-  opacity: 0; /* Invisible par défaut */
-  z-index: 1; /* Derrière regular par défaut */
-  animation: fill-fullheart 2s ease-in-out forwards;
-  animation-play-state: paused;
+  color: white;
+  /* Par défaut, blanche ou invisible */
+  opacity: 0;
+  /* Invisible par défaut */
+  z-index: 1;
+  /* Derrière regular par défaut */
+  transition: all 1s ease-in-out;
 }
-.restaurants .restaurants_cards a .card .card-content .like:hover .regular {
-  animation-play-state: running;
-}
-.restaurants .restaurants_cards a .card .card-content .like:hover .solid {
-  animation-play-state: running;
-}
-.restaurants .restaurants_cards a .card .card-content .like:active .regular {
-  animation: empty-thinheart 0.5s ease-in-out forwards;
-}
-.restaurants .restaurants_cards a .card .card-content .like:active .solid {
-  animation: empty-fullheart 0.5s ease-in-out forwards;
-}
-@keyframes fill-thinheart {
-  0% {
-    color: black; /* Départ en noir */
+
+/****** Media queries ***********/
+/* Medium devices (tablets, less/equal than 1024px) */
+@media (min-width: 769px) and (max-width: 1440px) {
+  .restaurants {
+    padding: 30px 93.5px;
   }
-  100% {
-    color: #9356DC; /* Fin en violet */
+  .restaurants .restaurants_cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    -moz-column-gap: 80px;
+         column-gap: 80px;
+    row-gap: 40px;
   }
-}
-@keyframes fill-fullheart {
-  0% {
-    color: white; /* Départ en blanc */
-    opacity: 0; /* Invisible */
-  }
-  100% {
-    color: #9356DC; /* Fin en violet */
-    opacity: 1; /* Complètement visible */
-  }
-}
-@keyframes empty-thinheart {
-  0% {
-    color: #9356DC; /* Départ en violet */
-  }
-  100% {
-    color: black; /* Fin en black */
-  }
-}
-@keyframes empty-fullheart {
-  0% {
-    color: #9356DC; /* Départ en violet */
-    opacity: 1; /* Visible */
-  }
-  100% {
-    color: white; /* Fin en blanc */
-    opacity: 0; /* Complètement invisible */
+  .restaurants .restaurants_cards a {
+    width: calc(50% - 50px);
+    flex-grow: 1;
   }
 }/*# sourceMappingURL=restaurants_cards.css.map */

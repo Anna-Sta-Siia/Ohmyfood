@@ -47,11 +47,7 @@ $main-police:'Roboto', sans-serif;
     border-radius: 20px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
-@mixin section-preform {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+
 
 //**Main-header**//
 
@@ -134,5 +130,13 @@ $main-police:'Roboto', sans-serif;
         }
            a {@include button-inside-preform;
            }
+    }
+}
+/****** Media queries ***********/
+/* Medium devices (tablets, less/equal than 1024px) */
+@media (min-width: 769px) and (max-width: 1440px){
+    .main-header .head-logo .logo{
+        margin-bottom: 32px;
+        margin-top: 30px;
     }
 }

@@ -86,4 +86,13 @@
   color: white;
   font-size: 16px;
   font-weight: 500;
+}
+
+/****** Media queries ***********/
+/* Medium devices (tablets, less/equal than 1024px) */
+@media (min-width: 769px) and (max-width: 1440px) {
+  .main-header .head-logo .logo {
+    margin-bottom: 32px;
+    margin-top: 30px;
+  }
 }/*# sourceMappingURL=main_header.css.map */

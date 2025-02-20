@@ -23,7 +23,7 @@ $main-police:'Roboto', sans-serif;
   justify-content: center;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   border-radius: 25px;
-  cursor: default;
+  cursor: pointer;
 }
 
 @mixin image-preform {
@@ -36,11 +36,7 @@ $main-police:'Roboto', sans-serif;
     border-radius: 20px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
-@mixin section-preform {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+
 
 
 body {
@@ -61,4 +57,10 @@ body {
             }
         }
 }
-
+/****** Media queries ***********/
+/* Medium devices (tablets, less/equal than 1024px) */
+@media (min-width: 769px) and (max-width: 1440px){
+     body .main-container{
+        max-width: 1440px;
+    }
+}

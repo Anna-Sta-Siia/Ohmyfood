@@ -40,19 +40,14 @@ $main-police: 'Roboto', sans-serif;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-@mixin section-preform {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-
 
 //**Restaurants**//
 
 .restaurants {
     background-color: $main-grey-color;
-    @include section-preform;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 60px 4.6%;
 
 
@@ -138,107 +133,72 @@ $main-police: 'Roboto', sans-serif;
 
                     .like {
                         position: relative;
-                        display: inline-block; 
-                        width: 22px; 
+                        display: inline-block;
+                        width: 22px;
                         height: 22px;
                         cursor: pointer;
                         padding-right: 4%;
-                        top:-4px;
-                    
-                    
-                    /* Icône regular (non remplie) */
-                    .regular {
-                        position: absolute;
-                        font-size: 22px;
-                        top: 0;
-                        left: 0;
-                        color: black; /* Par défaut, noire */
-                        z-index: 2; /* Toujours au-dessus par défaut */
-                        animation:fill-thinheart 2s ease-in-out forwards;
-                        animation-play-state: paused;
-                    }
+                        top: -4px;
 
-                    /* Icône solid (remplie) */
-                    .solid {
-                        position: absolute;
-                        font-size: 22px;
-                        top: 0;
-                        left: 0;
-                        color: white; /* Par défaut, blanche ou invisible */
-                        opacity: 0; /* Invisible par défaut */
-                        z-index: 1;/* Derrière regular par défaut */
-                        animation:fill-fullheart 2s ease-in-out forwards;
-                        animation-play-state: paused;
-                     }
-
-                         /* Au survol du conteneur */
-                         &:hover {
+                         .input-like{display: none;}
+                        /* Icône regular (non remplie) */
                         .regular {
-                            animation-play-state: running;
-                         }
-
+                            position: absolute;
+                            font-size: 22px;
+                            top: 0;
+                            left: 0;
+                            color: black;
+                            /* Par défaut, noire */
+                            z-index: 2;
+                            /* Toujours au-dessus par défaut */
+                            transition: color 1s ease-in-out
+                        }
+                        .input-like:checked +.regular{color: $third-violet-color;}
+                        .input-like:checked ~ .solid{color: $third-violet-color;opacity: 1;}
+                        .input-choice:not(:checked) +.regular{color: $third-violet-color;}
+                        .input-l:not(:checked) ~.solid{color: white;opacity: 0;}
+                        /* Icône solid (remplie) */
                         .solid {
-                            animation-play-state: running;
-                       
+                            position: absolute;
+                            font-size: 22px;
+                            top: 0;
+                            left: 0;
+                            color: white;
+                            /* Par défaut, blanche ou invisible */
+                            opacity: 0;
+                            /* Invisible par défaut */
+                            z-index: 1;
+                            /* Derrière regular par défaut */
+                            transition: all 1s ease-in-out;
                         }
-                         }
 
-                         &:active {
-                            .regular {
-                                
-                                animation:empty-thinheart 0.5s ease-in-out forwards;
-                             }
-    
-                            .solid {
-                                animation:empty-fullheart 0.5s ease-in-out forwards;
-                            }
-                             }
                     }
-        
-                
-                    @keyframes fill-thinheart {
-                        0% {
-                            color: black; /* Départ en noir */
-                        }
-                        100% {
-                            color: $third-violet-color; /* Fin en violet */
-                        }
-                    }
-                    /* Animation pour l'icône solid */
-                    @keyframes fill-fullheart {
-             0% {
-             color: white; /* Départ en blanc */
-            opacity: 0; /* Invisible */
-        }
-        100% {
-            color: $third-violet-color; /* Fin en violet */
-            opacity: 1; /* Complètement visible */
-        }
-    }
-    @keyframes empty-thinheart {
-        0% {
-            color: $third-violet-color; /* Départ en violet */
-        }
-        100% {
-            color: black; /* Fin en black */
-        }
-    }
-    /* Animation pour l'icône solid */
-    @keyframes empty-fullheart {
-0% {
-color:$third-violet-color; /* Départ en violet */
-opacity: 1; /* Visible */
-}
-100% {
-color: white; /* Fin en blanc */
-opacity: 0; /* Complètement invisible */
-}
-}
-}
 
                 }
-            
+
+            }
+
         }
     }
 }
 
+/****** Media queries ***********/
+/* Medium devices (tablets, less/equal than 1024px) */
+@media (min-width: 769px) and (max-width: 1440px) {
+    .restaurants {
+        padding: 30px 93.5px;
+
+        .restaurants_cards {
+            flex-direction: row;
+            flex-wrap: wrap;
+            column-gap: 80px;
+            row-gap: 40px;
+
+            a {
+                width: calc(50% - 50px);
+                flex-grow: 1;
+
+            }
+        }
+    }
+}

@@ -1,8 +1,6 @@
 .instruction {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 18px;
   margin: 60px 20px;
 }
 .instruction .instruction_title {
@@ -15,7 +13,12 @@
   font-size: 24px;
   font-weight: 700;
 }
-.instruction .instruction_step {
+.instruction .instruction_steps {
+  display: flex;
+  gap: 18px;
+  flex-direction: column;
+}
+.instruction .instruction_steps .instruction_step {
   align-items: center;
   width: 100%;
   background-color: #F3F3F3;
@@ -24,7 +27,7 @@
   border-radius: 20px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
-.instruction .instruction_step .number {
+.instruction .instruction_steps .instruction_step .number {
   display: inline-flex;
   height: 24px;
   width: 24px;
@@ -38,20 +41,42 @@
   z-index: 2;
   right: 10px;
 }
-.instruction .instruction_step .step {
+.instruction .instruction_steps .instruction_step .step {
   display: flex;
   justify-content: center;
   position: relative;
   width: 100%;
 }
-.instruction .instruction_step .step .icon {
+.instruction .instruction_steps .instruction_step .step .icon {
   color: silver;
   position: relative;
   right: 20.7%;
 }
-.instruction .instruction_step .step .text {
+.instruction .instruction_steps .instruction_step .step .text {
   font-size: 16px;
   font-weight: 500;
   margin-left: -5%;
   white-space: nowrap;
+}
+
+/****** Media queries ***********/
+/* Medium devices (tablets, less/equal than 1024px) */
+@media (min-width: 769px) and (max-width: 1440px) {
+  .instruction {
+    margin: 60px 93.5px;
+  }
+  .instruction .instruction_steps {
+    flex-direction: row;
+    gap: 36px;
+    box-sizing: border-box;
+  }
+  .instruction .instruction_steps .instruction_step {
+    width: calc(33% - 25px);
+  }
+  .instruction .instruction_steps .instruction_step .step .icon {
+    right: 25%;
+  }
+  .instruction .instruction_steps .instruction_step .step .text {
+    margin-left: -20%;
+  }
 }/*# sourceMappingURL=fonctionnement.css.map */

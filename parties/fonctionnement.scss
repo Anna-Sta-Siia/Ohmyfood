@@ -1,110 +1,144 @@
 //Mes variables//
 
-$main-grey-color:#F3F3F3;
-$secondary-rose-color:#FF79DA;
-$third-violet-color:#9356DC;
-$fourth-green-color:#99E2D0;
-$main-police:'Roboto', sans-serif;
+$main-grey-color: #F3F3F3;
+$secondary-rose-color: #FF79DA;
+$third-violet-color: #9356DC;
+$fourth-green-color: #99E2D0;
+$main-police: 'Roboto', sans-serif;
 
 
 //Mes mixins//
-@mixin long-button-shadow { box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);}
-@mixin secondary-writingstyle {
-    font-family:'Shrikhand', sans-serif; 
-    font-style: italic;
-  }
-  @mixin button-preform {
-  display: inline-flex;
-  height: 50px;
-  width: fit-content;
-  box-sizing: border-box;
-  background: linear-gradient(90deg, $secondary-rose-color, $third-violet-color);
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 25px;
-  cursor: default;
+@mixin long-button-shadow {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
-@mixin button-inside-preform{
+
+@mixin secondary-writingstyle {
+    font-family: 'Shrikhand', sans-serif;
+    font-style: italic;
+}
+
+@mixin button-preform {
+    display: inline-flex;
+    height: 50px;
+    width: fit-content;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, $secondary-rose-color, $third-violet-color);
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+@mixin button-inside-preform {
     color: white;
     font-size: 16px;
     font-weight: 500;
 }
+
 @mixin image-preform {
     object-fit: cover;
     flex-grow: 1;
 }
+
 @mixin long-button-preform {
     display: flex;
     height: 72px;
     border-radius: 20px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
-@mixin section-preform {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+
 
 //**Instruction**//
 
 .instruction {
-    @include section-preform;
-    gap: 18px;
-    margin:60px 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 60px 20px;
 
     .instruction_title {
-     margin-top: 0;
-     margin-bottom: 0;
-    
+        margin-top: 0;
+        margin-bottom: 0;
+
 
         h2 {
-        margin-bottom: 18px;
-        margin-top: 0;
-        font-size: 24px;
-        font-weight: 700;
+            margin-bottom: 18px;
+            margin-top: 0;
+            font-size: 24px;
+            font-weight: 700;
         }
     }
 
-    .instruction_step {
-    align-items: center;
-    width: 100%;
-    background-color: $main-grey-color;
-    @include long-button-preform;
-
-
-        .number {
-        display: inline-flex;
-        height: 24px;
-        width: 24px;
-        border-radius: 50px;
-        color: lighten($main-grey-color, 5%);
-        background-color: $third-violet-color;
-        justify-content: center;
-        align-items: center;
-        aspect-ratio: 1/1;
-        position: relative;
-        z-index: 2;
-        right: 10px;
-        }
-        
-        .step {
+    .instruction_steps {
         display: flex;
-        justify-content: center;
-        position: relative;
-        width: 100%;
+        gap: 18px;
+        flex-direction: column;
+        
 
-        .icon {
-        color: darken($main-grey-color, 20%);
-        position: relative;
-        right: 20.7%;
+        .instruction_step {
+            align-items: center;
+            width: 100%;
+            background-color: $main-grey-color;
+            @include long-button-preform;
+
+
+            .number {
+                display: inline-flex;
+                height: 24px;
+                width: 24px;
+                border-radius: 50px;
+                color: lighten($main-grey-color, 5%);
+                background-color: $third-violet-color;
+                justify-content: center;
+                align-items: center;
+                aspect-ratio: 1/1;
+                position: relative;
+                z-index: 2;
+                right: 10px;
+            }
+
+            .step {
+                display: flex;
+                justify-content: center;
+                position: relative;
+                width: 100%;
+
+                .icon {
+                    color: darken($main-grey-color, 20%);
+                    position: relative;
+                    right: 20.7%;
+                }
+
+                .text {
+                    font-size: 16px;
+                    font-weight: 500;
+                    margin-left: -5%;
+                    white-space: nowrap;
+                }
+            }
         }
+    }
+}
 
-        .text {
-        font-size: 16px;
-        font-weight: 500;
-        margin-left: -5%;
-        white-space: nowrap;
+/****** Media queries ***********/
+/* Medium devices (tablets, less/equal than 1024px) */
+@media (min-width: 769px) and (max-width: 1440px) {
+    .instruction {
+        margin: 60px 93.5px;
+
+
+
+        .instruction_steps {
+            flex-direction: row;
+            gap: 36px;
+            box-sizing: border-box;
+            
+            .instruction_step{
+             width: calc(33% - 25px);
+             .step{
+            .icon{right: 25%;}
+            .text{margin-left: -20%;}
+            }
         }
         }
     }
