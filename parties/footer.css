@@ -63,5 +63,6 @@
   .footer .footer_list_2 {
     flex-direction: row;
     padding: 0;
+    gap: 20px;
   }
 }/*# sourceMappingURL=footer.css.map */

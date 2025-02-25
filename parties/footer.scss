@@ -1,34 +1,39 @@
 //Mes variables//
 
-$main-grey-color:#F3F3F3;
-$secondary-rose-color:#FF79DA;
-$third-violet-color:#9356DC;
-$fourth-green-color:#99E2D0;
-$main-police:'Roboto', sans-serif;
+$main-grey-color: #F3F3F3;
+$secondary-rose-color: #FF79DA;
+$third-violet-color: #9356DC;
+$fourth-green-color: #99E2D0;
+$main-police: 'Roboto', sans-serif;
 
 //Mes mixins//
-@mixin long-button-shadow { box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);}
+@mixin long-button-shadow {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
 @mixin secondary-writingstyle {
-    font-family:'Shrikhand', sans-serif; 
+    font-family: 'Shrikhand', sans-serif;
     font-style: italic;
-  }
-  @mixin button-preform {
-  display: inline-flex;
-  height: 50px;
-  width: fit-content;
-  box-sizing: border-box;
-  background: linear-gradient(90deg, $secondary-rose-color, $third-violet-color);
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 25px;
-  cursor: pointer;
+}
+
+@mixin button-preform {
+    display: inline-flex;
+    height: 50px;
+    width: fit-content;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, $secondary-rose-color, $third-violet-color);
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    cursor: pointer;
 }
 
 @mixin image-preform {
     object-fit: cover;
     flex-grow: 1;
 }
+
 @mixin long-button-preform {
     display: flex;
     height: 72px;
@@ -43,70 +48,73 @@ $main-police:'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
     padding-bottom: 25px;
-    gap:7px;
+    gap: 7px;
 
 
     .footer-logo {
-    color: lighten($main-grey-color, 5%);
-    width: 110px;
-    font-size: 16px;
-    font-weight: 400;
-    padding: 25px;
-    @include secondary-writingstyle;
+        color: lighten($main-grey-color, 5%);
+        width: 110px;
+        font-size: 16px;
+        font-weight: 400;
+        padding: 25px;
+        @include secondary-writingstyle;
     }
 
     .footer_list_1,
     .footer_list_2 {
-    padding: 0 25px;
-    gap: 7px;
-    display: flex;
-    flex-direction: column;
-    list-style-type: none;
-    margin-top: 0;
-    margin-bottom: 0;
-    
+        padding: 0 25px;
+        gap: 7px;
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        margin-top: 0;
+        margin-bottom: 0;
+
 
         .list_step {
-        display: inline-flex;
-        gap: 12px;
+            display: inline-flex;
+            gap: 12px;
 
 
             i {
-            color: lighten($main-grey-color, 5%);
-            font-size: 13px;
+                color: lighten($main-grey-color, 5%);
+                font-size: 13px;
             }
 
             .list_text {
-            color: lighten($main-grey-color, 5%);
-            font-size: 16px;
-            font-weight: 400;
+                color: lighten($main-grey-color, 5%);
+                font-size: 16px;
+                font-weight: 400;
             }
         }
     }
 }
+
 /****** Media queries ***********/
 
-@media (min-width: 769px){
-.footer{
-    flex-direction: row;
-    padding-top:40px ;
-    padding-bottom: 20px;
-    justify-content: flex-end;
-    align-items: center;
-    gap:30px;
-    padding-right: 1.3%;
-
-    .footer-logo{
-        order: 2;
-        padding-top: 0;
-        padding-left: 3%;
-        padding-bottom: 10px;
-        padding-right: 0;
-    }
-    .footer_list_1,
-    .footer_list_2{
+@media (min-width: 769px) {
+    .footer {
         flex-direction: row;
-        padding:0;
+        padding-top: 40px;
+        padding-bottom: 20px;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 30px;
+        padding-right: 1.3%;
+
+        .footer-logo {
+            order: 2;
+            padding-top: 0;
+            padding-left: 3%;
+            padding-bottom: 10px;
+            padding-right: 0;
+        }
+
+        .footer_list_1,
+        .footer_list_2 {
+            flex-direction: row;
+            padding: 0;
+            gap: 20px;
+        }
     }
-}
 }

@@ -63,60 +63,61 @@ $main-police: 'Roboto', sans-serif;
         box-sizing: border-box;
         width: 100%;
 
-
-        a {
+        .card-box {
             display: flex;
-            flex-direction: column;
-            width: 100%;
+            position: relative;
 
-
-            .card {
+            a {
                 display: flex;
                 flex-direction: column;
-                border-radius: 20px;
-                background-color: lighten($main-grey-color, 5%);
+                width: 100%;
+                position: relative;
+                z-index: 1;
 
 
-                .card-image {
+                .card {
                     display: flex;
                     flex-direction: column;
                     border-radius: 20px;
-                    position: relative;
+                    background-color: lighten($main-grey-color, 5%);
 
 
-                    img {
-                        height: 180px;
+                    .card-image {
+                        display: flex;
+                        flex-direction: column;
                         border-radius: 20px;
-                        @include image-preform;
-                        object-position: center 68%;
-                    }
+                        position: relative;
 
-                    .card-new {
-                        position: absolute;
-                        top: 20px;
-                        right: 20px;
-                        color: darken($fourth-green-color, 30%);
-                        background-color: $fourth-green-color;
-                        padding: 6px 9px;
-                        font-size: 14px;
-                        font-weight: 500;
-                        display: inline-flex;
-                        box-sizing: border-box;
-                        border-radius: 2px;
-                        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-                    }
-                }
 
-                .card-content {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    padding: 14px 10px;
+                        img {
+                            height: 180px;
+                            border-radius: 20px;
+                            @include image-preform;
+                            object-position: center 68%;
+                        }
+
+                        .card-new {
+                            position: absolute;
+                            top: 20px;
+                            right: 20px;
+                            color: darken($fourth-green-color, 30%);
+                            background-color: $fourth-green-color;
+                            padding: 6px 9px;
+                            font-size: 14px;
+                            font-weight: 500;
+                            display: inline-flex;
+                            box-sizing: border-box;
+                            border-radius: 2px;
+                            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+                        }
+                    }
 
 
                     .card-txt {
                         display: flex;
                         flex-direction: column;
+                        padding: 10px 15px;
+                        gap: 3px;
 
                         .card-title {
                             font-size: 18px;
@@ -131,67 +132,69 @@ $main-police: 'Roboto', sans-serif;
                         }
                     }
 
-
-                    .like {
-                        position: relative;
-                        display: inline-block;
-                        width: 22px;
-                        height: 22px;
-                        cursor: pointer;
-                        padding-right: 4%;
-                        top: -4px;
-
-                        .input-like {
-                            display: none;
-                        }
-
-                        /* Icône regular (non remplie) */
-                        .regular {
-                            position: absolute;
-                            font-size: 22px;
-                            top: 0;
-                            left: 0;
-                            color: black;
-                            /* Par défaut, noire */
-                            z-index: 2;
-                            /* Toujours au-dessus par défaut */
-                            transition: color 1s ease-in-out
-                        }
-
-                        .input-like:checked+.regular {
-                            color: $third-violet-color;
-                        }
-
-                        .input-like:checked~.solid {
-                            color: $third-violet-color;
-                            opacity: 1;
-                        }
-
-                        .input-choice:not(:checked)+.regular {
-                            color: $third-violet-color;
-                        }
-
-                        .input-l:not(:checked)~.solid {
-                            color: white;
-                            opacity: 0;
-                        }
-
-                        /* Icône solid (remplie) */
-                        .solid {
-                            position: absolute;
-                            font-size: 22px;
-                            top: 0;
-                            left: 0;
-                            color: white;
-                            /* Par défaut, blanche ou invisible */
-                            opacity: 0;
-                            /* Invisible par défaut */
-                            z-index: 1;
-                            /* Derrière regular par défaut */
-                            transition: all 1s ease-in-out;
-                        }
-                    }
                 }
+            }
+
+            .like {
+                position: relative;
+                display: inline-block;
+                width: 22px;
+                height: 22px;
+                cursor: pointer;
+                z-index: 3;
+                top: 200px;
+                right: 10%;
+
+                .input-like {
+                    display: none;
+                }
+
+                /* Icône regular (non remplie) */
+                .regular {
+                    position: absolute;
+                    font-size: 22px;
+                    top: 0;
+                    left: 0;
+                    color: black;
+                    /* Par défaut, noire */
+                    z-index: 2;
+                    /* Toujours au-dessus par défaut */
+                    transition: color 1s ease-in-out;
+                }
+
+                .input-like:checked+.regular {
+                    color: $third-violet-color;
+                }
+
+                .input-like:checked~.solid {
+                    color: $third-violet-color;
+                    opacity: 1;
+                }
+
+                .input-choice:not(:checked)+.regular {
+                    color: $third-violet-color;
+                }
+
+                .input-l:not(:checked)~.solid {
+                    color: white;
+                    opacity: 0;
+                }
+
+                /* Icône solid (remplie) */
+                .solid {
+                    position: absolute;
+                    font-size: 22px;
+                    top: 0;
+                    left: 0;
+                    color: white;
+                    /* Par défaut, blanche ou invisible */
+                    opacity: 0;
+                    /* Invisible par défaut */
+                    z-index: 1;
+                    /* Derrière regular par défaut */
+                    transition: all 1s ease-in-out;
+                }
+
 
             }
 
@@ -215,10 +218,14 @@ $main-police: 'Roboto', sans-serif;
             column-gap: 80px;
             row-gap: 40px;
 
-            a {
+            .card-box {
                 width: calc(50% - 50px);
-                flex-grow: 1;
 
+                a {
+
+                    flex-grow: 1;
+
+                }
             }
         }
     }
