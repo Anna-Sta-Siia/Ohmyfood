@@ -131,10 +131,9 @@
 }
 
 /****** Media queries ***********/
-/* Medium devices (tablets, less/equal than 1024px) */
-@media (min-width: 769px) and (max-width: 1440px) {
+@media (min-width: 769px) {
   .restaurants {
-    padding: 30px 93.5px;
+    padding: 30px 0;
   }
   .restaurants .restaurants_cards {
     flex-direction: row;
@@ -146,5 +145,10 @@
   .restaurants .restaurants_cards a {
     width: calc(50% - 50px);
     flex-grow: 1;
+  }
+}
+@media (min-width: 1080px) {
+  .restaurants {
+    padding: 30px 7.5%;
   }
 }/*# sourceMappingURL=restaurants_cards.css.map */

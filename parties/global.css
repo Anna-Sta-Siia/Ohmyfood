@@ -7,7 +7,6 @@ body {
 }
 body .main-container {
   width: 100%;
-  max-width: 768px;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
@@ -16,13 +15,6 @@ body .main-container a {
   text-decoration: none;
 }
 
-/****** Media queries ***********/
-/* Medium devices (tablets, less/equal than 1024px) */
-@media (min-width: 769px) and (max-width: 1440px) {
-  body .main-container {
-    max-width: 1440px;
-  }
-}
 .main-header {
   display: flex;
   justify-content: center;
@@ -183,24 +175,36 @@ body .main-container a {
 }
 
 /****** Media queries ***********/
-/* Medium devices (tablets, less/equal than 1024px) */
-@media (min-width: 769px) and (max-width: 1440px) {
+@media (min-width: 769px) {
   .instruction {
-    margin: 60px 93.5px;
+    margin: 60px 0;
   }
   .instruction .instruction_steps {
     flex-direction: row;
-    gap: 36px;
+    gap: 32px;
     box-sizing: border-box;
+    justify-content: center;
   }
   .instruction .instruction_steps .instruction_step {
-    width: calc(33% - 25px);
+    width: calc(33% - 26px);
   }
   .instruction .instruction_steps .instruction_step .step .icon {
-    right: 25%;
+    right: 22%;
   }
   .instruction .instruction_steps .instruction_step .step .text {
-    margin-left: -20%;
+    margin-left: -18%;
+    font-size: 14px;
+  }
+}
+@media (min-width: 1080px) {
+  .instruction {
+    margin: 60px 7.5%;
+  }
+  .instruction .instruction_steps {
+    gap: 12px;
+  }
+  .instruction .instruction_steps .instruction_step .step .text {
+    font-size: 16px;
   }
 }
 .restaurants {
@@ -335,10 +339,9 @@ body .main-container a {
 }
 
 /****** Media queries ***********/
-/* Medium devices (tablets, less/equal than 1024px) */
-@media (min-width: 769px) and (max-width: 1440px) {
+@media (min-width: 769px) {
   .restaurants {
-    padding: 30px 93.5px;
+    padding: 30px 0;
   }
   .restaurants .restaurants_cards {
     flex-direction: row;
@@ -350,6 +353,11 @@ body .main-container a {
   .restaurants .restaurants_cards a {
     width: calc(50% - 50px);
     flex-grow: 1;
+  }
+}
+@media (min-width: 1080px) {
+  .restaurants {
+    padding: 30px 7.5%;
   }
 }
 .resto {
@@ -394,7 +402,7 @@ body .main-container a {
   height: 22px;
   cursor: pointer;
   padding-right: 4%;
-  top: -4px;
+  bottom: -20px;
   /* Icône regular (non remplie) */
   /* Icône solid (remplie) */
 }
@@ -504,51 +512,55 @@ body .main-container a {
   text-overflow: ellipsis;
 }
 .resto .carte-plats .type-plats .variant-plat .plat {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
-  padding: 15px;
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   gap: 5px;
-  max-width: 55%;
+  max-width: 62%;
   white-space: nowrap;
 }
 .resto .carte-plats .type-plats .variant-plat .plat .plat-first_line {
   font-size: 18px;
   font-weight: 500;
-  transition: all 0.5s;
+  width: 100%;
+  overflow: visible;
 }
 .resto .carte-plats .type-plats .variant-plat .plat .plat-second_line {
   font-size: 15px;
   font-weight: 300;
-  transition: all 0.5s;
+  width: 100%;
 }
 .resto .carte-plats .type-plats .variant-plat .input-choice:checked ~ .choiceplat {
   transform: translateX(0);
   transition: transform 1s ease-in-out;
 }
 .resto .carte-plats .type-plats .variant-plat .input-choice:not(:checked) ~ .choiceplat {
-  transform: translateX(50%);
+  transform: translateX(60%);
   transition: transform 1s ease-in-out;
 }
 .resto .carte-plats .type-plats .variant-plat .choiceplat {
-  display: flex;
+  display: inline-flex;
   box-sizing: border-box;
-  width: 33%;
+  width: 120px;
   height: 100%;
   align-items: flex-end;
-  justify-content: flex-end;
-  transform: translateX(50%);
+  justify-content: space-between;
+  transform: translateX(60%);
   gap: 15px;
 }
 .resto .carte-plats .type-plats .variant-plat .choiceplat .prix {
   font-size: 15px;
   font-weight: 700;
   padding: 15px 0;
+  display: inline-block;
 }
 .resto .carte-plats .type-plats .variant-plat .choiceplat .coulisse {
-  width: 50%;
+  width: 60%;
   height: 100%;
   background: #99E2D0;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
@@ -605,33 +617,29 @@ body .main-container a {
 }
 
 /****** Media queries ***********/
-/* Medium devices (tablets, less/equal than 1024px) */
-@media (min-width: 769px) and (max-width: 1440px) {
-  body .main-container {
-    max-width: 1440px;
-  }
-  body .main-container .resto {
+@media (min-width: 769px) {
+  .resto {
     align-items: center;
   }
-  body .main-container .resto .resto_image {
+  .resto .resto_image {
     height: 380px;
     width: 100%;
   }
-  body .main-container .resto .menu {
+  .resto .menu {
     width: 73%;
     margin-top: -5%;
   }
-  body .main-container .resto .menu .resto_name {
+  .resto .menu .resto_name {
     justify-content: center;
     gap: 20px;
   }
-  body .main-container .resto .menu .resto_name .like {
+  .resto .menu .resto_name .like {
     top: 19px;
   }
-  body .main-container .resto .menu .carte-plats {
+  .resto .menu .carte-plats {
     padding: 0 20%;
   }
-  body .main-container .resto nav .button_for_action {
+  .resto nav .button_for_action {
     margin-bottom: 30px;
   }
 }
@@ -659,8 +667,7 @@ body .main-container a {
 }
 
 /****** Media queries ***********/
-/* Medium devices (tablets, less/equal than 1024px) */
-@media (min-width: 769px) and (max-width: 1440px) {
+@media (min-width: 769px) {
   .resto-header .logo {
     margin-bottom: 32px;
     margin-top: 30px;
@@ -670,19 +677,21 @@ body .main-container a {
   background-color: #272727;
   display: flex;
   flex-direction: column;
+  padding-bottom: 25px;
+  gap: 7px;
 }
 .footer .footer-logo {
   color: white;
-  width: 138px;
+  width: 110px;
   font-size: 16px;
   font-weight: 400;
-  padding-left: 25px;
-  padding-top: 25px;
+  padding: 25px;
   font-family: "Shrikhand", sans-serif;
   font-style: italic;
 }
-.footer .footer_list {
-  padding: 25px;
+.footer .footer_list_1,
+.footer .footer_list_2 {
+  padding: 0 25px;
   gap: 7px;
   display: flex;
   flex-direction: column;
@@ -690,41 +699,45 @@ body .main-container a {
   margin-top: 0;
   margin-bottom: 0;
 }
-.footer .footer_list .list_step {
+.footer .footer_list_1 .list_step,
+.footer .footer_list_2 .list_step {
   display: inline-flex;
   gap: 12px;
 }
-.footer .footer_list .list_step i {
+.footer .footer_list_1 .list_step i,
+.footer .footer_list_2 .list_step i {
   color: white;
   font-size: 13px;
 }
-.footer .footer_list .list_step .list_text {
+.footer .footer_list_1 .list_step .list_text,
+.footer .footer_list_2 .list_step .list_text {
   color: white;
   font-size: 16px;
   font-weight: 400;
 }
 
 /****** Media queries ***********/
-/* Medium devices (tablets, less/equal than 1024px) */
-@media (min-width: 769px) and (max-width: 1440px) {
+@media (min-width: 769px) {
   .footer {
     flex-direction: row;
     padding-top: 40px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     justify-content: flex-end;
     align-items: center;
+    gap: 30px;
+    padding-right: 1.3%;
   }
   .footer .footer-logo {
     order: 2;
-    position: relative;
-    padding: 0;
-    right: 3%;
-    bottom: 5px;
+    padding-top: 0;
+    padding-left: 3%;
+    padding-bottom: 10px;
+    padding-right: 0;
   }
-  .footer .footer_list {
+  .footer .footer_list_1,
+  .footer .footer_list_2 {
     flex-direction: row;
-    padding-right: 10%;
-    gap: 16px;
+    padding: 0;
   }
 }
 /* Style du loader */

@@ -67,8 +67,8 @@ $main-police:'Roboto', sans-serif;
         @include logo-preform
     }
     /****** Media queries ***********/
-/* Medium devices (tablets, less/equal than 1024px) */
-@media (min-width: 769px) and (max-width: 1440px){
+
+@media (min-width: 769px){
     .resto-header .logo{
         margin-bottom: 32px;
         margin-top: 30px;

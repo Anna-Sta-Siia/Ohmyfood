@@ -131,6 +131,7 @@ $main-police: 'Roboto', sans-serif;
                         }
                     }
 
+
                     .like {
                         position: relative;
                         display: inline-block;
@@ -140,7 +141,10 @@ $main-police: 'Roboto', sans-serif;
                         padding-right: 4%;
                         top: -4px;
 
-                         .input-like{display: none;}
+                        .input-like {
+                            display: none;
+                        }
+
                         /* Icône regular (non remplie) */
                         .regular {
                             position: absolute;
@@ -153,10 +157,25 @@ $main-police: 'Roboto', sans-serif;
                             /* Toujours au-dessus par défaut */
                             transition: color 1s ease-in-out
                         }
-                        .input-like:checked +.regular{color: $third-violet-color;}
-                        .input-like:checked ~ .solid{color: $third-violet-color;opacity: 1;}
-                        .input-choice:not(:checked) +.regular{color: $third-violet-color;}
-                        .input-l:not(:checked) ~.solid{color: white;opacity: 0;}
+
+                        .input-like:checked+.regular {
+                            color: $third-violet-color;
+                        }
+
+                        .input-like:checked~.solid {
+                            color: $third-violet-color;
+                            opacity: 1;
+                        }
+
+                        .input-choice:not(:checked)+.regular {
+                            color: $third-violet-color;
+                        }
+
+                        .input-l:not(:checked)~.solid {
+                            color: white;
+                            opacity: 0;
+                        }
+
                         /* Icône solid (remplie) */
                         .solid {
                             position: absolute;
@@ -171,9 +190,7 @@ $main-police: 'Roboto', sans-serif;
                             /* Derrière regular par défaut */
                             transition: all 1s ease-in-out;
                         }
-
                     }
-
                 }
 
             }
@@ -182,11 +199,15 @@ $main-police: 'Roboto', sans-serif;
     }
 }
 
+
+
+
+
 /****** Media queries ***********/
-/* Medium devices (tablets, less/equal than 1024px) */
-@media (min-width: 769px) and (max-width: 1440px) {
+
+@media (min-width: 769px) {
     .restaurants {
-        padding: 30px 93.5px;
+        padding: 30px 0;
 
         .restaurants_cards {
             flex-direction: row;
@@ -200,5 +221,11 @@ $main-police: 'Roboto', sans-serif;
 
             }
         }
+    }
+}
+
+@media (min-width: 1080px) {
+    .restaurants {
+        padding: 30px 7.5%;
     }
 }

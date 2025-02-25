@@ -60,23 +60,35 @@
 }
 
 /****** Media queries ***********/
-/* Medium devices (tablets, less/equal than 1024px) */
-@media (min-width: 769px) and (max-width: 1440px) {
+@media (min-width: 769px) {
   .instruction {
-    margin: 60px 93.5px;
+    margin: 60px 0;
   }
   .instruction .instruction_steps {
     flex-direction: row;
-    gap: 36px;
+    gap: 32px;
     box-sizing: border-box;
+    justify-content: center;
   }
   .instruction .instruction_steps .instruction_step {
-    width: calc(33% - 25px);
+    width: calc(33% - 26px);
   }
   .instruction .instruction_steps .instruction_step .step .icon {
-    right: 25%;
+    right: 22%;
   }
   .instruction .instruction_steps .instruction_step .step .text {
-    margin-left: -20%;
+    margin-left: -18%;
+    font-size: 14px;
+  }
+}
+@media (min-width: 1080px) {
+  .instruction {
+    margin: 60px 7.5%;
+  }
+  .instruction .instruction_steps {
+    gap: 12px;
+  }
+  .instruction .instruction_steps .instruction_step .step .text {
+    font-size: 16px;
   }
 }/*# sourceMappingURL=fonctionnement.css.map */

@@ -73,7 +73,7 @@ $main-police: 'Roboto', sans-serif;
         display: flex;
         gap: 18px;
         flex-direction: column;
-        
+
 
         .instruction_step {
             align-items: center;
@@ -121,25 +121,51 @@ $main-police: 'Roboto', sans-serif;
 }
 
 /****** Media queries ***********/
-/* Medium devices (tablets, less/equal than 1024px) */
-@media (min-width: 769px) and (max-width: 1440px) {
+
+@media (min-width: 769px) {
     .instruction {
-        margin: 60px 93.5px;
-
-
+        margin: 60px 0;
 
         .instruction_steps {
             flex-direction: row;
-            gap: 36px;
+            gap: 32px;
             box-sizing: border-box;
-            
-            .instruction_step{
-             width: calc(33% - 25px);
-             .step{
-            .icon{right: 25%;}
-            .text{margin-left: -20%;}
+            justify-content: center;
+
+            .instruction_step {
+                width: calc(33% - 26px);
+
+                .step {
+                    .icon {
+                        right: 22%;
+                    }
+
+                    .text {
+                        margin-left: -18%;
+                        font-size: 14px;
+                    }
+                }
             }
         }
+    }
+}
+
+@media (min-width: 1080px) {
+    .instruction {
+        margin: 60px 7.5%;
+
+        .instruction_steps {
+            gap: 12px;
+
+            .instruction_step {
+
+                .step {
+
+                    .text {
+                        font-size: 16px;
+                    }
+                }
+            }
         }
     }
 }

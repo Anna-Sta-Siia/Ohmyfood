@@ -47,7 +47,6 @@ body {
     
         .main-container {
         width: 100%;
-        max-width: 768px;
         box-sizing: border-box;
         font-family:$main-police;
     
@@ -57,10 +56,4 @@ body {
             }
         }
 }
-/****** Media queries ***********/
-/* Medium devices (tablets, less/equal than 1024px) */
-@media (min-width: 769px) and (max-width: 1440px){
-     body .main-container{
-        max-width: 1440px;
-    }
-}
+
