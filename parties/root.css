@@ -3,6 +3,7 @@ body {
   justify-content: center;
   white-space: normal;
   margin: 0;
+  overflow-x: hidden;
 }
 body .main-container {
   width: 100%;
