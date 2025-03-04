@@ -20,6 +20,7 @@
 .restaurants .restaurants_cards .card-box {
   display: flex;
   position: relative;
+  flex-direction: column;
 }
 .restaurants .restaurants_cards .card-box a {
   display: flex;
@@ -86,8 +87,8 @@
   height: 22px;
   cursor: pointer;
   z-index: 3;
-  top: 200px;
-  right: 10%;
+  bottom: 45px;
+  left: 90%;
   /* Icône regular (non remplie) */
   /* Icône solid (remplie) */
 }
@@ -140,6 +141,8 @@
   }
   .restaurants .restaurants_cards {
     flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
     flex-wrap: wrap;
     -moz-column-gap: 80px;
          column-gap: 80px;

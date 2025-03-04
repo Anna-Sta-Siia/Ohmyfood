@@ -66,6 +66,7 @@ $main-police: 'Roboto', sans-serif;
         .card-box {
             display: flex;
             position: relative;
+            flex-direction: column;
 
             a {
                 display: flex;
@@ -142,8 +143,8 @@ $main-police: 'Roboto', sans-serif;
                 height: 22px;
                 cursor: pointer;
                 z-index: 3;
-                top: 200px;
-                right: 10%;
+                bottom: 45px;
+                left: 90%;
 
                 .input-like {
                     display: none;
@@ -214,6 +215,8 @@ $main-police: 'Roboto', sans-serif;
 
         .restaurants_cards {
             flex-direction: row;
+            justify-content: space-between;
+            box-sizing: border-box;
             flex-wrap: wrap;
             column-gap: 80px;
             row-gap: 40px;
