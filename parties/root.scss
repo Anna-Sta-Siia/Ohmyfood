@@ -1,42 +1,4 @@
-//Mes variables//
-
-$main-grey-color:#F3F3F3;
-$secondary-rose-color:#FF79DA;
-$third-violet-color:#9356DC;
-$fourth-green-color:#99E2D0;
-$main-police:'Roboto', sans-serif;
-
-
-//Mes mixins//
-@mixin long-button-shadow { box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);}
-@mixin secondary-writingstyle {
-    font-family:'Shrikhand', sans-serif; 
-    font-style: italic;
-  }
-  @mixin button-preform {
-  display: inline-flex;
-  height: 50px;
-  width: fit-content;
-  box-sizing: border-box;
-  background: linear-gradient(90deg, $secondary-rose-color, $third-violet-color);
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 25px;
-  cursor: pointer;
-}
-
-@mixin image-preform {
-    object-fit: cover;
-    flex-grow: 1;
-}
-@mixin long-button-preform {
-    display: flex;
-    height: 72px;
-    border-radius: 20px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-}
-
+@use 'rules' as *;
 
 
 body {

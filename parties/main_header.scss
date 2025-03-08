@@ -1,53 +1,4 @@
-//Mes variables//
-
-$main-grey-color:#F3F3F3;
-$secondary-rose-color:#FF79DA;
-$third-violet-color:#9356DC;
-$fourth-green-color:#99E2D0;
-$main-police:'Roboto', sans-serif;
-
-
-//Mes mixins//
-@mixin logo-preform {
-    .logo {
-    height: 36px;
-    width: 197px;
-    margin-bottom: 10px;
-    margin-top: 18px;
-    }
-}
-@mixin long-button-shadow { box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);}
-@mixin secondary-writingstyle {
-    font-family:'Shrikhand', sans-serif; 
-    font-style: italic;
-  }
-  @mixin button-preform {
-  display: inline-flex;
-  height: 50px;
-  width: fit-content;
-  box-sizing: border-box;
-  background: linear-gradient(90deg, $secondary-rose-color, $third-violet-color);
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 25px;
-}
-@mixin button-inside-preform{
-    color: white;
-    font-size: 16px;
-    font-weight: 500;
-}
-@mixin image-preform {
-    object-fit: cover;
-    flex-grow: 1;
-}
-@mixin long-button-preform {
-    display: flex;
-    height: 72px;
-    border-radius: 20px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-}
-
+@use 'rules' as *;
 
 //**Main-header**//
 
@@ -72,7 +23,7 @@ $main-police:'Roboto', sans-serif;
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: lighten($main-grey-color, 2%);
+    background-color: lighten($main-color-grey, 2%);
     padding-top: 14px;
     padding-bottom: 14px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
@@ -83,21 +34,21 @@ $main-police:'Roboto', sans-serif;
         }
 
         .fa-location {
-        color: darken($main-grey-color, 65%);
+        color: darken($main-color-grey, 65%);
         }
 
         input {
         border: none;
         font-size: 16px;
         font-weight: 500;
-        background-color:lighten($main-grey-color, 2%);
+        background-color:lighten($main-color-grey, 2%);
         text-align: center;
-        color: darken($main-grey-color, 80%);
+        color: darken($main-color-grey, 80%);
         }
     }
 
     .presentation {
-    background-color: $main-grey-color;
+    background-color: $main-color-grey;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -115,7 +66,7 @@ $main-police:'Roboto', sans-serif;
         text-align: center;
         margin-top: 0;
         margin-bottom: 40px;
-        color: darken($main-grey-color, 80%);
+        color: darken($main-color-grey, 80%);
         }
     }
 

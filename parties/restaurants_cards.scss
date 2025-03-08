@@ -1,50 +1,10 @@
-//Mes variables//
-
-$main-grey-color: #F3F3F3;
-$secondary-rose-color: #FF79DA;
-$third-violet-color: #9356DC;
-$fourth-green-color: #99E2D0;
-$main-police: 'Roboto', sans-serif;
-
-//Mes mixins//
-@mixin long-button-shadow {
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-@mixin secondary-writingstyle {
-    font-family: 'Shrikhand', sans-serif;
-    font-style: italic;
-}
-
-@mixin button-preform {
-    display: inline-flex;
-    height: 50px;
-    width: fit-content;
-    box-sizing: border-box;
-    background: linear-gradient(90deg, $secondary-rose-color, $third-violet-color);
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 25px;
-}
-
-@mixin image-preform {
-    object-fit: cover;
-    flex-grow: 1;
-}
-
-@mixin long-button-preform {
-    display: flex;
-    height: 72px;
-    border-radius: 20px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-}
+@use 'rules' as *;
 
 
 //**Restaurants**//
 
 .restaurants {
-    background-color: $main-grey-color;
+    background-color: $main-color-grey;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -80,7 +40,7 @@ $main-police: 'Roboto', sans-serif;
                     display: flex;
                     flex-direction: column;
                     border-radius: 20px;
-                    background-color: lighten($main-grey-color, 5%);
+                    background-color: lighten($main-color-grey, 5%);
 
 
                     .card-image {
@@ -92,7 +52,7 @@ $main-police: 'Roboto', sans-serif;
 
                         img {
                             height: 180px;
-                            border-radius: 20px;
+                            border-radius: 20px 20px 0 0;
                             @include image-preform;
                             object-position: center 68%;
                         }
@@ -101,8 +61,8 @@ $main-police: 'Roboto', sans-serif;
                             position: absolute;
                             top: 20px;
                             right: 20px;
-                            color: darken($fourth-green-color, 30%);
-                            background-color: $fourth-green-color;
+                            color: darken($fourth-color-green, 30%);
+                            background-color: $fourth-color-green;
                             padding: 6px 9px;
                             font-size: 14px;
                             font-weight: 500;
@@ -144,7 +104,7 @@ $main-police: 'Roboto', sans-serif;
                 cursor: pointer;
                 z-index: 3;
                 bottom: 45px;
-                left: 90%;
+                left: 88%;
 
                 .input-like {
                     display: none;
@@ -160,25 +120,23 @@ $main-police: 'Roboto', sans-serif;
                     /* Par défaut, noire */
                     z-index: 2;
                     /* Toujours au-dessus par défaut */
-                    transition: color 1s ease-in-out;
+                    transition: opacity 0.3s ease-in-out;
                 }
 
                 .input-like:checked+.regular {
-                    color: $third-violet-color;
+                    opacity: 0;
                 }
 
                 .input-like:checked~.solid {
-                    color: $third-violet-color;
                     opacity: 1;
                 }
 
                 .input-choice:not(:checked)+.regular {
-                    color: $third-violet-color;
+                    opacity: 0;
                 }
 
                 .input-l:not(:checked)~.solid {
-                    color: white;
-                    opacity: 0;
+                    opacity: 1;
                 }
 
                 /* Icône solid (remplie) */
@@ -187,13 +145,14 @@ $main-police: 'Roboto', sans-serif;
                     font-size: 22px;
                     top: 0;
                     left: 0;
-                    color: white;
-                    /* Par défaut, blanche ou invisible */
-                    opacity: 0;
-                    /* Invisible par défaut */
                     z-index: 1;
                     /* Derrière regular par défaut */
-                    transition: all 1s ease-in-out;
+                    opacity: 0;
+                    /* Caché par défaut */
+                    background: linear-gradient(90deg, #FF79DA, #9356DC);
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    transition: opacity 0.3s ease-in-out;
                 }
 
 

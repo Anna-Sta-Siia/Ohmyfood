@@ -1,3 +1,4 @@
+@use 'rules.scss';
 @use 'root.scss';
 @use 'main_header.scss';
 @use 'fonctionnement.scss';
@@ -5,4 +6,4 @@
 @use 'menu_resto.scss';
 @use 'resto_header.scss';
 @use 'footer.scss';
-@use 'loader.scss';
+@use 'loader.scss'; 
