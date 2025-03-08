@@ -1,0 +1,3 @@
+# Ignorer tous les fichiers CSS générés sauf global.css
+parties/*.css
+parties/*.css.map
